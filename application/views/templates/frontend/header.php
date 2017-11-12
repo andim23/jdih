@@ -1,3 +1,6 @@
+<style>
+	.logo-2{ width:160px !important; }
+</style>
 <header id="nav" class="header header-1 no-transparent mobile-no-transparent">
           
   <div class="header-wrapper">
@@ -7,8 +10,8 @@
         <!-- LOGO --> 
         <div class="logo-container-2">
             <div class="logo-2">
-              <a href="index.html" class="clearfix">
-                <img src="<?= base_url() ?>theme/assets/admin/layout/img/logo.png" class="logo-img" alt="Logo">
+              <a href="<?= base_url() ?>frontend" class="clearfix">
+                <img src="<?= base_url() ?>theme/assets/admin/layout/img/logo-front.png" class="logo-img" alt="Logo">
               </a>
             </div>
         </div>
