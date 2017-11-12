@@ -1,0 +1,1 @@
+<?php $this->load->view('templates/layout_horizontal_sidebar_menu/footer') ?>
