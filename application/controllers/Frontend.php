@@ -24,6 +24,11 @@ class Frontend extends MY_Controller {
     }
 
     public function index() {
+        $this->load->model('Konten_statis_m');
+        $this->load->model('Produk_hukum_m');
+        
+        $data['sekilas'] = $this->Konten_statis_m->get_data(array('nama' => 'sekilas_jdih_home'));
+        $data['terbaru'] = $this->Produk_hukum_m->get_data_terbaru(null, 'tanggal desc',5);
         //$data['page'] = $this->main_path . 'main.php';
         $data['page'] = $this->main_path . "home/main";
         $data['title'] = ""; // Capitalize the first letter
@@ -103,7 +108,7 @@ class Frontend extends MY_Controller {
         $where = array('id_kategori' => $id_kategori);
 
         $result = $this->Produk_hukum_m->get_data_by_id($id_produk_hukum);
-        $terbaru = $this->Produk_hukum_m->get_data_terbaru($where, 'dateinput desc');
+        $terbaru = $this->Produk_hukum_m->get_data_terbaru($where, 'tanggal desc');
         $id_dokumen = isset($result[0]->id_dokumen)?$result[0]->id_dokumen:null;
         $attach = $this->Sys_attach_dtl_m->get_data(array('attachid' => $id_dokumen));
         $komentar = $this->Produk_hukum_komentar_m->get_data(array('id_produk_hukum' => $id_produk_hukum, 'publish' => 'Y'));

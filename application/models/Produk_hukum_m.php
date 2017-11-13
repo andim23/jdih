@@ -27,8 +27,8 @@ class Produk_hukum_m extends My_model {
         return $query->result();
     }
     
-    function get_data_terbaru($where = NULL, $order_by = NULL) {
-        $this->db->limit(10);
+    function get_data_terbaru($where = NULL, $order_by = NULL, $limit=10) {
+        $this->db->limit($limit);
         
         if (!empty($where))
             $this->db->where($where);
