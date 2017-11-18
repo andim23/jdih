@@ -18,9 +18,9 @@
                 </div>
                 
                 <div class="post-prev-title">
-                    <h3><a href="blog-single-sidebar-right.html"><?= $rt->judul ?></a></h3>
+                    <h3><a href="<?= base_url() ?>frontend/detail/<?= $rt->id_kategori ?>/<?= $rt->id_produk_hukum ?>"><?= $rt->judul ?></a></h3>
                     <div class="post-prev-info">
-                        <a href="#"><?= $rt->kategori ?></a>
+                        <a href="<?= base_url() ?>frontend/produk_hukum_per_kategori/<?= $rt->id_kategori ?>"><?= $rt->kategori ?></a>
                     </div>
                 </div>
             </div>

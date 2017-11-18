@@ -106,11 +106,51 @@ class Upload extends MY_Controller {
         
         echo json_encode($r);
     }
+    
+    public function do_upload_permohonan(){
+        // set user priviledge
+        if( !$this->verify_role('admin') )
+            redirect("login");
+        
+        $config['upload_path'] = UPLOAD_PATH . 'berkas_permohonan/';
+        $config['allowed_types'] = 'pdf|jpeg|png';
+        $config['max_size'] = '100000000';
+        $this->load->library('upload', $config);
+        
+        if ( ! $this->upload->do_upload("file") ){
+            $r = array('info'=>'0', 'message' => $this->upload->display_errors());
+        }else{
+            $data = array('upload_data' => $this->upload->data());
+            $file_name = $data['upload_data']['file_name'];
+            $file_type = $data['upload_data']['file_type'];
+            $file_size = $data['upload_data']['file_size'];
+            $r = array(
+                'info'=>'1', 
+                'message'=>'Upload Lokal berhail', 
+                'file_name'=>$file_name,
+                'file_type'=>$file_type,
+                'file_size'=>$file_size
+            );
+        }
+        
+        echo json_encode($r);
+    }
 
-        public function delete_fileph_json(){
+    public function delete_fileph_json(){
         $file_name = $this->input->get('file_name');
         
         $file_path = UPLOAD_PATH . 'produk_hukum/' . $file_name;
+        if(file_exists($file_path) ){
+            unlink ($file_path);
+        }
+        $r = array('status'=>'1', 'message'=>'Delete File berhasil');
+        echo json_encode($r);
+    }
+    
+    public function delete_file_permohonan_json(){
+        $file_name = $this->input->get('file_name');
+        
+        $file_path = UPLOAD_PATH . 'berkas_permohonan/' . $file_name;
         if(file_exists($file_path) ){
             unlink ($file_path);
         }

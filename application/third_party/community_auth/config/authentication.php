@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['levels_and_roles'] = [
 	'1' => 'admin',
-	'2' => 'pusat'
+	'2' => 'biasa'
 ];
 
 /*

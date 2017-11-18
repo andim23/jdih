@@ -14,9 +14,9 @@
 class Sys_user_m extends My_model {
 
     //put your code here
-    var $table = "sys_user";
-    var $view = "sys_user_view";
-    var $primary_key = "userid";
+    var $table = "auth_users";
+    var $view = "auth_users";
+    var $primary_key = "user_id";
 
     function get_data($where = NULL, $order_by = NULL) {
         if (!empty($where))
