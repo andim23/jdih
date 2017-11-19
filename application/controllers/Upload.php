@@ -109,9 +109,6 @@ class Upload extends MY_Controller {
     
     public function do_upload_permohonan(){
         // set user priviledge
-        if( !$this->verify_role('admin') )
-            redirect("login");
-        
         $config['upload_path'] = UPLOAD_PATH . 'berkas_permohonan/';
         $config['allowed_types'] = 'pdf|jpeg|png';
         $config['max_size'] = '100000000';

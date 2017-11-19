@@ -27,8 +27,8 @@
     </div>
     <div class="form-group">
         <label class="control-label">Email</label>
-        <input type="text" placeholder="<?= isset($profile[0]->useremail)?$profile[0]->useremail:''; ?>" 
-        	class="form-control" name="useremail" readonly value="<?= isset($profile[0]->useremail)?$profile[0]->useremail:''; ?>" 
+        <input type="text" 
+        	class="form-control" name="useremail" readonly value="<?= isset($profile[0]->email)?$profile[0]->email:''; ?>" 
         />
     </div>
 

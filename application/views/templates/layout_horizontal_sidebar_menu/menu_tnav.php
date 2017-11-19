@@ -4,7 +4,7 @@
         <?php
         	// get Full Name by userid $auth_user_id is the global variable from CI Auth to get UserID
 			$fullname = $this->auth_username;
-			$photo = get_user_photo_by_id($auth_user_id);
+			$photo = null;
 		?>
         <li class="dropdown dropdown-user">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">

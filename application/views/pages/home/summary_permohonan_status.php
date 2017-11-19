@@ -23,7 +23,7 @@
 			},
 			exporting: { enabled: false },
 			title: {
-				text: 'Summary per Status Permohonan'
+				text: 'Summary per Status Permohonan<?= $biro ?>'
 			},
 			subtitle: {
 				text: ''

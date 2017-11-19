@@ -3,17 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Apache24/htdocs/jdih/application/models/Permohonan_m.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/models/Sys_user_m.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/models/Permohonan_status_h_m.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Page.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/models/Produk_hukum_kategori_m.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Auth.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Permohonan.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/models/Permohonan_status_m.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Update_permohonan.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Dashboard.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Sys_user.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/User_profile.php</file>
         </group>
     </open-files>
 </project-private>

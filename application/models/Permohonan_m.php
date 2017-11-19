@@ -211,4 +211,12 @@ class Permohonan_m extends My_model {
     }
 
     // end fata tables
+    function get_latest_permohonan($where=null){
+        if (!empty($where))
+            $this->db->where($where);
+        $this->db->order_by('tanggal desc');
+        $this->db->limit(1);
+        $query = $this->db->get($this->view);
+        return $query->result();
+    }
 }

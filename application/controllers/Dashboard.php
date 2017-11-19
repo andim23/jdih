@@ -29,7 +29,8 @@ class Dashboard extends MY_Controller {
     public function index() {
         $this->load->model('Permohonan_status_m');
         $this->load->model('produk_hukum_kategori_m');
-        
+        $this->load->model('Sys_user_m');
+        $this->load->model('Permohonan_m');
 
         // set breadcrumb, tidak usah pake Home karena itu sudah default
         $breadcrumb = array(
@@ -37,8 +38,13 @@ class Dashboard extends MY_Controller {
         );
         
         $tahun = date('Y');
-        $user_id = $this->auth_role == 'admin'?$this->auth_user_id:null;
+        $user_id = $this->auth_role != 'admin'?$this->auth_user_id:null;
         
+        if( $this->auth_role != 'admin' ){
+            $data['permohonan'] = $this->Permohonan_m->get_latest_permohonan(array('user_id' => $this->auth_user_id));
+        }
+        
+        $data['user'] = $this->Sys_user_m->get_data_by_id($this->auth_user_id);
         $data['chart1'] = $this->Permohonan_status_m->get_summary_permohonan_status($tahun, $user_id);
         $data['chart2'] = $this->produk_hukum_kategori_m->summary_kategori($tahun, $user_id);
         $data['breadcrumb'] = $breadcrumb;

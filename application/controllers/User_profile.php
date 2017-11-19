@@ -36,9 +36,7 @@ class User_profile extends MY_Controller {
         
         $user_id = $this->auth_user_id;
         $profile = $this->Sys_user_m->get_data_by_id($user_id);
-        $last_act = $this->User_profile_m->get_last_activity($this->auth_user_id);
         
-        $data['last_act'] = $last_act;
         $data['profile'] = $profile;
         $data['page'] = $this->main_path . 'main';
         $data['htitle'] = 'Profile User';
