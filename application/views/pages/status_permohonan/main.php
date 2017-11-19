@@ -30,30 +30,6 @@
                     </div>
                 </div>
                 <!-- End: life time stats -->
-
-                <!-- Modal -->
-                <div class="modal fade bs-modal-lg" id="modal_form" tabindex="-1" role="dialog" aria-labelledby="modal_formModalLabel" data-backdrop="static">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="modal_formModalLabel">Modal title</h4>
-                            </div>
-                            <div class="modal-body">
-                                <?php include('form.php'); ?>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="row">
-                                    <div class="col-md-3 text-left"><span class="text-danger">*</span> Harus diisi</div>
-                                    <div class="col-md-9">
-                                        <button type="submit" class="btn btn-primary" id="save-btn">Simpan</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

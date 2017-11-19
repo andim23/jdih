@@ -9,7 +9,11 @@ select		x.id_permohonan, x.user_id, x.id_kategori, x.id_permohonan_status,
 				dnd.filename as berkas_nota_dinas,
 				dpp.filename as berkas_position_paper,
 				ddr.filename as berkas_draft_rancangan,
-				dtb.filename as berkas_tahap_pembahasan
+				dtb.filename as berkas_tahap_pembahasan,
+				concat(mid(x.tanggal,9,2), '-', 
+				mid(x.tanggal,6,2), '-' ,
+				left(x.tanggal,4), ' ', 
+				right(x.tanggal,8)) as tanggal_char
 from 			permohonan x
 left join	permohonan_status y on y.id_permohonan_status = x.id_permohonan_status
 left join	produk_hukum_kategori z on z.id_kategori = x.id_kategori

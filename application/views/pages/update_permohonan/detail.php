@@ -38,7 +38,7 @@
         </div>
         
         <div class="form-group">
-            <label class="control-label col-md-3">Status</label> 
+            <label class="control-label col-md-3">Status Terakhir</label> 
             <div class="col-md-9">
                 <label class="control-label"><strong><?= $row->status ?></strong></label>
             </div>
@@ -126,7 +126,7 @@
         
         <div class="form-group">
 			<div class="col-md-12">
-        		<h3>Catatan Tambahan</h3>
+        		<h3>Keterangan Terakhir</h3>
         	</div>
         </div>
         
@@ -151,7 +151,7 @@
         </div>
         
         <div class="form-group">
-        	<div class="col-md-12"><label>Status Terakhir</label></div>
+        	<div class="col-md-12"><label>Status</label></div>
             <div class="col-md-12">
                 <select class="form-control" id="id_permohonan_status" name="id_permohonan_status">
                 	<option value="">Pilih Status</option>

@@ -9,18 +9,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 
 /**
- * Description of Update_permohonan
+ * Description of Permohonan_status
  *
  * @author Selamet Subu - Dell 5459
  */
-class Update_permohonan extends MY_Controller {
+class Permohonan_status extends MY_Controller {
 
     var $tmp_path = 'templates/layout_horizontal_sidebar_menu/index';
-    var $main_path = 'pages/update_permohonan/';
+    var $main_path = 'pages/permohonan_status/';
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Permohonan_m');
+        $this->load->model('Permohonan_status_m');
         $this->load->library('form_validation');
 
         $this->is_logged_in();
@@ -42,8 +42,8 @@ class Update_permohonan extends MY_Controller {
 
         $data['breadcrumb'] = $breadcrumb;
         $data['page'] = $this->main_path . 'main.php';
-        $data['title'] = $dy[0]->displayname; // Capitalize the first letter
-        $data['htitle'] = $dy[0]->displayname;
+        $data['title'] = "Status Permohonan"; // Capitalize the first letter
+        $data['htitle'] = "Status Permohonan";
         $this->load->view($this->tmp_path, $data);
     }
 
@@ -63,14 +63,14 @@ class Update_permohonan extends MY_Controller {
         // set validation rules
         $config = array(
             array(
-                'field' => 'id_permohonan_status',
+                'field' => 'status',
                 'label' => 'Status',
-                'rules' => 'required'
+                'rules' => 'required|min_length[1]|max_length[50]'
             ),
             array(
-                'field' => 'notes',
-                'label' => 'Keterangan',
-                'rules' => 'required'
+                'field' => 'no_urut',
+                'label' => 'No Urut',
+                'rules' => 'required|is_natural|min_length[1]|max_length[50]'
             )
         );
         $this->form_validation->set_rules($config);
@@ -79,24 +79,21 @@ class Update_permohonan extends MY_Controller {
 
         if ($this->form_validation->run() !== false) {
             // Post data
-            $id = $this->input->post('id_permohonan');
-            $id_permohonan_status = $this->input->post('id_permohonan_status');
-            $notes = $this->input->post('notes');
+            $id = $this->input->post('id_permohonan_status');
+            $status = $this->input->post('status');
+            $no_urut = $this->input->post('no_urut');
             $userinput = $this->auth_user_id;
 
-            
             // set POST data in Array
             $data = array(
-                'id_permohonan_status' => $id_permohonan_status,
-                'notes' => $notes
+                'status' => $status,
+                'no_urut' => $no_urut
             );
 
             if (!empty($id)) {
-                $data['userupdate'] = $userinput;
-                $data['dateupdate'] = date('Y-m-d');
-                $result = $this->Permohonan_m->update_data_by_id($data, $id);
+                $result = $this->Permohonan_status_m->update_by_id($data, $id);
             } else {
-                $result = false;
+                $result = $this->Permohonan_status_m->insert($data);
             }
 
             if ($result) {
@@ -114,7 +111,27 @@ class Update_permohonan extends MY_Controller {
         echo json_encode($r);
     }
 
-    
+    public function hapus_json() {
+        // only allow ajax request
+        if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest'
+        )
+            show_404();
+
+        if (!$this->verify_role('admin')) {
+            redirect("login");
+        }
+        $id = $this->input->get('id');
+        $result = $this->Permohonan_status_m->delete_by_id($id);
+        if ($result) {
+            $r = array('status' => '1', 'message' => 'Data terhapus');
+        } else {
+            $r = array('status' => '0', 'message' => 'Data gagal terhapus');
+        }
+
+        echo json_encode($r);
+    }
 
     public function admin_ajax_list() {
         // only allow ajax request
@@ -124,18 +141,19 @@ class Update_permohonan extends MY_Controller {
         )
             show_404();
 
+        if (!$this->verify_role('admin')) {
+            redirect("login");
+        }
 
-        $this->load->model('Permohonan_m');
+        $this->load->model('Permohonan_status_m');
 
-        $where = array();
-        
         $column_order = array(
-            'id_permohonan', 'no_permohonan', 'tanggal_char', 'kategori', 'judul', 'status', 'id_permohonan'
+            'id_permohonan_status', 'status', 'no_urut', 'id_permohonan_status'
         );
         $column_search = $column_order;
-        $order = array('tanggal' => 'desc'); // default order 
+        $order = array('no_urut' => 'asc'); // default order 
 
-        $list = $this->Permohonan_m->get_datatables($column_order, $order, $column_search, $where);
+        $list = $this->Permohonan_status_m->get_datatables($column_order, $order, $column_search);
         $data = array();
         $no = $_POST['start'];
         foreach ($list as $r) {
@@ -150,44 +168,25 @@ class Update_permohonan extends MY_Controller {
 
         $output = array(
             "draw" => $_POST['draw'],
-            "recordsTotal" => $this->Permohonan_m->count_all($where),
-            "recordsFiltered" => $this->Permohonan_m->count_filtered($column_order, $order, $column_search, $where),
+            "recordsTotal" => $this->Permohonan_status_m->count_all(),
+            "recordsFiltered" => $this->Permohonan_status_m->count_filtered($column_order, $order, $column_search),
             "data" => $data,
         );
         echo json_encode($output);
     }
 
-    public function status_detail($id_permohonan=null){
-        $this->load->model('produk_hukum_kategori_m');
-        $this->load->model('Sys_user_m');
-        $this->load->model('Permohonan_status_h_m');
-        $this->load->model('Permohonan_status_m');
-        
-        $x = $this->input->get('x');
-        $y = $this->input->get('y');
-        $dx = $this->Sys_sitemap->get_data_by_id($x);
-        $dy = $this->Sys_sitemap->get_data_by_id($y);
+    public function get_data_by_id_json() {
+        // only allow ajax request
+        if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+                strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest'
+        )
+            show_404();
 
-        // set breadcrumb, tidak usah pake Home karena itu sudah default
-        $breadcrumb = array(
-            $dx[0]->displayname => base_url() . 'page/get_left_menu?x=' . $x,
-            $dy[0]->displayname => base_url() . $dy[0]->url . '?x=' . $x . '&y=' . $y,
-            'Detail Permohonan' => ''
-        );
-        
-        $detail = $this->Permohonan_m->get_data_by_id($id_permohonan);
-        $where = array(
-            'id_permohonan' => $id_permohonan
-        );
-        $his = $this->Permohonan_status_h_m->get_data($where, 'dateinput desc');
-        $data['status'] = $this->Permohonan_status_m->get_data(array('status !=' => 'Pengajuan'), 'no_urut');
-        $data['his'] = $his;
-        $data['detail'] = $detail;
-        $data['breadcrumb'] = $breadcrumb;
-        $data['page'] = $this->main_path . 'detail_main.php';
-        $data['title'] = "Form Detail Pengajuan"; // Capitalize the first letter
-        $data['htitle'] = "Form Detail Pengajuan";
-        $this->load->view($this->tmp_path, $data);
+
+        $id = $this->input->get("id");
+        $data = $this->Permohonan_status_m->get_data_by_id($id);
+        echo json_encode($data);
     }
 
 }

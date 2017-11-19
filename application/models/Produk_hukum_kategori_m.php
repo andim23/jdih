@@ -108,4 +108,27 @@ class produk_hukum_kategori_m extends My_model {
     }
 
     // end fata tables
+    function summary_kategori($tahun=null, $user_id=null)
+    {
+        
+        $where = !empty($user_id)?' and y.user_id = "'.$user_id.'" ':'';
+        
+        $sql = 'select		x.id_kategori, x.kategori, ifnull(y.total,0) as total
+                from		produk_hukum_kategori x
+                left join	
+                (
+                        select      y.id_kategori, count(*) as total
+                        from        permohonan y
+                        where       year(y.tanggal) = "'.$tahun. '"
+                                    '.$where.'
+                        group by    y.id_kategori
+
+                ) y on y.id_kategori = x.id_kategori
+                where   x.is_permohonan = 1
+                '
+        ;
+        $query = $this->db->query($sql);
+        $result = $query->result();
+        return $result;
+    }
 }

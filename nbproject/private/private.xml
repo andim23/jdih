@@ -5,10 +5,15 @@
         <group>
             <file>file:/C:/Apache24/htdocs/jdih/application/models/Permohonan_m.php</file>
             <file>file:/C:/Apache24/htdocs/jdih/application/models/Sys_user_m.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Sys_globalvar.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/models/Konten_statis_m.php</file>
-            <file>file:/C:/Apache24/htdocs/jdih/application/models/Sys_globalvar_m.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/models/Permohonan_status_h_m.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Page.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/models/Produk_hukum_kategori_m.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Auth.php</file>
             <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Permohonan.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/models/Permohonan_status_m.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Update_permohonan.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Dashboard.php</file>
+            <file>file:/C:/Apache24/htdocs/jdih/application/controllers/Sys_user.php</file>
         </group>
     </open-files>
 </project-private>

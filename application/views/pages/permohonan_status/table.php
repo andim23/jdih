@@ -6,20 +6,14 @@
     <thead>
         <tr role="row" class="heading">
             <th width="50">No</th>
-            <th>No Permohonan</th>
-            <th>Tanggal Permohonan</th>
-            <th>Kategori</th>
-            <th>Judul</th>
             <th>Status</th>
+            <th>No Urut</th>
             <th width="50">&nbsp;</th>
         </tr>
         <tr role="row" class="filter">
             <td>&nbsp;</td>
-            <td><input type="text" class="form-control form-filter input-sm input-circle" name="no_permohonan"></td>
-            <td><input type="text" class="form-control form-filter input-sm input-circle" name="tanggal_char"></td>
-            <td><input type="text" class="form-control form-filter input-sm input-circle" name="kategori"></td>
-            <td><input type="text" class="form-control form-filter input-sm input-circle" name="judul"></td>
             <td><input type="text" class="form-control form-filter input-sm input-circle" name="status"></td>
+            <td><input type="text" class="form-control form-filter input-sm input-circle" name="no_urut"></td>
             <td align="center">&nbsp;</td>
         </tr>
     </thead>

@@ -197,7 +197,7 @@ class Sys_user extends MY_Controller {
         $id = $this->input->get('id');
         
         // get file name
-        $data = $this->Sys_user_m->get_data( array('userid'=>$id), NULL );
+        $data = $this->Sys_user_m->get_data( array('user_id'=>$id), NULL );
         $filename = isset( $data[0]->userphoto )?$data[0]->userphoto:NULL;
         $file_path = UPLOAD_PATH . $filename;
         $file_path_thumb = UPLOAD_PATH . 'thumb_' . $filename;

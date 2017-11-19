@@ -26,11 +26,14 @@
 			?>
             <li class="<?= $class ?>">
                 <div class="timeline-time">
-                    <span class="date">
-                    <?= $rh->dateinput_char ?> </span>
                     <span class="">
                     	<h3><?= $rh->status ?> </h3>
                     </span>
+                    <span class="date" style="font-size:14px;">
+                    	<?= TglIndo($rh->dateinput) ?> 
+                    </span>
+                    
+                    
                 </div>
                 <div class="timeline-icon">
                     <i class="fa fa-clock-o"></i>

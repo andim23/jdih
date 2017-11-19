@@ -119,7 +119,7 @@
         
         <div class="form-group">
 			<div class="col-md-12">
-        		<h3>Catatan Tambahan</h3>
+        		<h3>Keterangan Terakhir</h3>
         	</div>
         </div>
         

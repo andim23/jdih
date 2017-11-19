@@ -56,7 +56,7 @@
             ],
             "pageLength": 10, // default record count per page
             "ajax": {
-                "url": "<?= base_url() ?>Permohonan/admin_ajax_list", // ajax source,
+                "url": "<?= base_url() ?>Update_permohonan/admin_ajax_list", // ajax source,
             },
             "aaSorting": [],
             "columnDefs": [{

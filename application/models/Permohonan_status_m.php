@@ -108,4 +108,25 @@ class Permohonan_status_m extends My_model {
     }
 
     // end fata tables
+    
+    
+    function get_summary_permohonan_status($tahun=null, $user_id=null){
+        
+        $where = !empty($user_id)?' and y.user_id = "'.$user_id.'" ':'';
+        
+        $sql = 'select		x.id_permohonan_status, x.status,  ifnull(y.total,0) as total
+                from            permohonan_status x
+                left join	
+                (
+                    select	y.id_permohonan_status, count(*) as total
+                    from	permohonan y
+                    where       year(y.tanggal) = "'.$tahun. '"
+                                '.$where.'
+                    group by	y.id_permohonan_status
+                ) y on y.id_permohonan_status = x.id_permohonan_status '
+        ;
+        $query = $this->db->query($sql);
+        $result = $query->result();
+        return $result;
+    }
 }
