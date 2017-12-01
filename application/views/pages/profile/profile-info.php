@@ -4,7 +4,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
   <tr>
     <td width="200">Biro</td>
-    <td><?= isset($profile[0]->biro)?$profile[0]->biro:''; ?></td>
+    <td id="biro_txt"><?= isset($profile[0]->biro)?$profile[0]->biro:''; ?></td>
   </tr>
   <tr>
     <td width="200">Nama Lengkap/Panggilan</td>

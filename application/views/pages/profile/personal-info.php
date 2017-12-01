@@ -7,6 +7,15 @@
         	class="form-control" name="username" id="username" readonly value="<?= isset($profile[0]->username)?$profile[0]->username:''; ?>" 
         />
     </div>
+    
+    <div class="form-group">
+        <label class="control-label">Email</label>
+        <input type="text" 
+        	class="form-control" name="useremail" readonly value="<?= isset($profile[0]->email)?$profile[0]->email:''; ?>" 
+        />
+        <span class="help-block">Hubungi Administrator untuk mengubah E-mail</span>
+    </div>
+    
     <div class="form-group">
         <label class="control-label">Nama Lengkap</label>
         <input type="text" placeholder="<?= isset($profile[0]->fullname)?$profile[0]->fullname:''; ?>" 
@@ -26,13 +35,11 @@
         />
     </div>
     <div class="form-group">
-        <label class="control-label">Email</label>
-        <input type="text" 
-        	class="form-control" name="useremail" readonly value="<?= isset($profile[0]->email)?$profile[0]->email:''; ?>" 
+        <label class="control-label">Biro</label>
+        <input type="text"
+        	class="form-control" name="biro" id="biro" value="<?= isset($profile[0]->biro)?$profile[0]->biro:''; ?>" 
         />
     </div>
-
-    
     <div class="margiv-top-10">
         <a href="#" class="btn blue" id="simpan_perubahan">Simpan Perubahan</a>
     </div>
@@ -48,10 +55,13 @@
             url: url,
             data: data,
             success: function (response) {
+				var biro = $("#biro").val();
                 var data = JSON.parse(response);
                 var status = data.status;
                 var message = data.message;
                 if (status == '1') {
+					
+					$("#biro_txt").text(biro);
 					var tmp = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>Data berhasil tersimpan</div>';
                 } else {
 					$.each( data.message, function(key, value){
@@ -68,7 +78,6 @@
 					
 					
                 }
-				$("#username").focus();
 				$(".status").append(tmp);
 				$(".status").focus();
 				$("#simpan_perubahan").text('Simpan Perubahan').removeAttr("disabled");

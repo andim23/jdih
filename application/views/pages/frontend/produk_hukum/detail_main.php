@@ -34,20 +34,6 @@
                   </ul>
                 </div>
         	</div>
-            
-            <!-- WIDGET -->
-            <div class="widget">
-        		<h5 class="widget-title">Produk Hukum</h5>
-                <div class="widget-body">
-                  <ul class="clearlist widget-menu">
-                    <?php foreach( $dkategori as $r ){ ?>
-                    <li>
-                      <a href="<?= base_url() ?>frontend/produk_hukum_per_kategori/<?= $r->id_kategori ?>" title=""><?=  $r->kategori ?></a><!--<small><span class="slash-divider">/</span> 10</small>-->
-                    </li>
-                    <?php } ?>
-                  </ul>
-                </div>        
-        	</div>
         </div>
     </div>
 </div>

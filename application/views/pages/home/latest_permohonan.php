@@ -22,4 +22,9 @@
       <?php } ?>  
       </tr>
     </table>
+    
+    <?php 
+		if( empty($permohonan) ) 
+		echo "Data permohonan tidak tersedia";
+	?>
 </div>

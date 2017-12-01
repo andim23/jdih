@@ -14,9 +14,7 @@
                             <?= $htitle ?>
                         </div>
                         <div class="actions">
-                            <a href="#" id="add-new" class="btn default yellow-stripe btn-circle">
-                                <i class="fa fa-plus"></i><span class="hidden-480"> Tambah</span>
-                            </a>
+                            
                         </div>
                     </div>
                     <div class="portlet-body">

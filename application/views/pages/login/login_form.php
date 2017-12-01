@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>Login Form | JDIH</title>
+<title>Login Form | Sunprokum</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -46,7 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <link id="style_color" href="<?php echo base_url() ?>theme/assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url() ?>theme/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
-<!--<link rel="shortcut icon" href="<?= base_url() ?>theme/assets/admin/layout/img/icon.png" />-->
+<link rel="shortcut icon" href="<?= base_url() ?>theme/assets/admin/layout/img/icon.png" />
 <style>
 	.logo{
 		margin-top:5% !important;
@@ -90,7 +90,7 @@ if( ! isset( $on_hold_message ) )
         <?php
         	if( ! isset( $optional_login ) )
 			{
-				echo '<center><h3 class="form-title">Login ke JDIH</h3></center>';
+				echo '<center><h3 class="form-title">Login ke Sunprokum</h3></center>';
 			}
 		?>
         <div>

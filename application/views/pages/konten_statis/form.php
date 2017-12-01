@@ -39,9 +39,11 @@
                     >
                       <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
                     </div>
+                    
                     <span class="help-block">Tipe Gambar jpg, jpeg, png</span>
-                    <div id="gambar_content">
-                    </div>
+                    
+                    <div id="gambar_content"></div>
+                    
                     <div style="width:100px;" id="delete-file-content">
                     	<center><a href="#" class="delete-file"><i class="fa fa-trash-o"></i> Hapus</a></center>
                     </div>

@@ -34,7 +34,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>theme/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>theme/assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
 
-<!--<link rel="shortcut icon" href="<?= base_url() ?>theme/assets/admin/layout/img/icon.png" />-->
+<link rel="shortcut icon" href="<?= base_url() ?>theme/assets/admin/layout/img/icon.png" />
 
 <style>
 	.modal .scroll{

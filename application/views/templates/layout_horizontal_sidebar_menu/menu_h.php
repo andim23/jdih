@@ -12,7 +12,7 @@
 			$page = !empty($row->url)?$row->url:'page/get_left_menu';
 		?>
         <li id="<?= $row->sitemapid ?>">
-            <a href="<?= base_url() . $page . '?x=' . $row->sitemapid ?>"><?= $row->displayname ?></a>
+            <a href="<?= base_url() . $page . '?x=' . $row->sitemapid ?>"><?= $row->icon ?> <?= $row->displayname ?></a>
         </li>
         <?php } ?>
     </ul>

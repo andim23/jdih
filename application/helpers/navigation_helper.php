@@ -57,4 +57,13 @@
         
         return $nav;
    }
+   
+   function get_globalvar_by_name($name=null, $field=null){
+   		$ci =& get_instance();
+		$ci->load->model('Sys_globalvar_m');
+		$where = array('varname' => $name);
+		$result = $ci->Sys_globalvar_m->get_data($where, null);
+		$data = isset($result[0]->$field)?$result[0]->$field:"";
+		return $data;
+   }
 ?>

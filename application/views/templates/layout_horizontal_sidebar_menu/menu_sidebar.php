@@ -16,10 +16,11 @@
 				foreach( $snav as $row ){ 
 					if( empty($row->sub) )
 					{
+						$icon = !empty($row->icon)?$row->icon:'<i class="fa fa-circle-o"></i>';
 			?>
                     <li id="<?= $row->sitemapid ?>">
                         <a href="<?= base_url() . $row->url . '?x=' . $sitemapid . '&y=' . $row->sitemapid ?>" id="<?= $row->name ?> "> 
-                        <i class="fa fa-circle-o"></i> <span class="title"> <?= $row->displayname ?> </span>
+                        <?= $icon ?> <span class="title"> <?= $row->displayname ?> </span>
                         </a>
                     </li>
             <?php

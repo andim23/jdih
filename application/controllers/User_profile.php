@@ -52,7 +52,7 @@ class User_profile extends MY_Controller {
 
         $data = $this->Sys_user_m->get_data_by_id($user_id);
         //print_r($data);
-        $pass = $data[0]->userpass;
+        $pass = $data[0]->passwd;
 
         if( !$this->authentication->check_passwd( $pass, $old_password ) )
         {
@@ -122,14 +122,13 @@ class User_profile extends MY_Controller {
         
         if ($this->form_validation->run() !== false) {
             // Post data
-            $userpass = $this->input->post('userpass');
+            $passwd = $this->input->post('userpass');
             $userinput = $this->auth_user_id;
             // set POST data in Array
-            $data['userupdate'] = $userinput;
-            $data['dateupdate'] = date('Y-m-d');
-            $data['userpass'] = $this->authentication->hash_passwd($userpass);
+            $data['passwd_modified_at'] = date('Y-m-d');
+            $data['passwd'] = $this->authentication->hash_passwd($passwd);
             //print_r($data); exit;
-            $result = $this->Sys_user_m->update_user_password_auth_by_id($data, $userinput);
+            $result = $this->Sys_user_m->update_user_auth_password_by_id($data, $userinput);
 
             if ($result) {
                 $r = array('status' => '1', 'message' => 'Data tersimpan');
@@ -167,6 +166,11 @@ class User_profile extends MY_Controller {
                 'field' => 'usertelpno',
                 'label' => 'Telp',
                 'rules' => 'required|min_length[2]|max_length[50]'
+            ),
+            array(
+                'field' => 'biro',
+                'label' => 'Biro',
+                'rules' => 'required|min_length[2]|max_length[255]'
             )
         );
         
@@ -175,27 +179,21 @@ class User_profile extends MY_Controller {
 
         if ($this->form_validation->run() !== false) {
             // Post data
-            //$username = $this->input->post('username');
-            //$useremail = $this->input->post('useremail');
             $nickname = $this->input->post('nickname');
             $fullname = $this->input->post('fullname');
             $usertelpno = $this->input->post('usertelpno');
-            $dinasid = $this->input->post('dinasid');
-            //$idsatker = $this->input->post('idsatker');
-            $userinput = $this->auth_user_id;
+            $biro = $this->input->post('biro');
+            $id = $this->auth_user_id;
 
             // set POST data in Array
             $data = array(
-                //'username' => $username,
-                //'useremail' => $useremail,
                 'nickname' => $nickname,
                 'fullname' => $fullname,
                 'usertelpno' => $usertelpno,
-                'dinasid' => $dinasid
+                'biro' => $biro
             );
 
-            $data['userupdate'] = $userinput;
-            $data['dateupdate'] = date('Y-m-d');
+            $data['modified_at'] = date('Y-m-d');
 
             $result = $this->Sys_user_m->update_by_id($data, $id);
 

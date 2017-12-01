@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col-md-12">  
         <form id="form" action="<?= base_url() ?>Permohonan/simpan_json" method="POST" class="form-horizontal">
-        
+        <div class="status"></div>
         <div class="form-group">
             <label class="control-label col-md-3">No. Permohonan</label> 
             <div class="col-md-9">
@@ -68,7 +68,7 @@
         <div class="form-group">
         	<label class="control-label col-md-3">Tanggal <span class="required" aria-required="true">*</span></label>
             <div class="col-md-9">
-                <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy">
+                <div class="input-group input-large date date-picker" data-date-format="dd-mm-yyyy">
                     <input type="text" class="form-control"  name="tanggal_nota_dinas" id="tanggal_nota_dinas">
                     <span class="input-group-btn">
                     <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
@@ -89,7 +89,7 @@
                     </div>
                     <span class="help-block">Tipe Dokumen jpg, jpeg, png, pdf. Ukuran Maksimal 50 MB</span>
                 </div>
-                <div id="nota_dinas_content"></div>
+                <div id="nota_dinas_content"><input type="hidden" name="nota_dinas_file" id="nota_dinas_file" /></div>
             </div>
         </div>
         
@@ -111,7 +111,9 @@
                     </div>
                     <span class="help-block">Tipe Dokumen jpg, jpeg, png, pdf</span>
                 </div>
-                <div id="position_paper_content"></div>
+                <div id="position_paper_content">
+                	<input type="hidden" name="position_paper_file" id="position_paper_file" />
+                </div>
             </div>
         </div>
         
@@ -133,7 +135,9 @@
                     </div>
                     <span class="help-block">Tipe Dokumen jpg, jpeg, png, pdf</span>
                 </div>
-                <div id="draft_rancangan_content"></div>
+                <div id="draft_rancangan_content">
+                	<input type="hidden" name="draft_rancangan_file" id="draft_rancangan_file" />
+                </div>
             </div>
         </div>
         
@@ -157,7 +161,9 @@
                     </div>
                     <span class="help-block">Tipe Dokumen jpg, jpeg, png, pdf</span>
                 </div>
-                <div id="tahapan_pembahasan_content"></div>
+                <div id="tahapan_pembahasan_content">
+                	<input type="hidden" name="tahapan_pembahasan_file" id="tahapan_pembahasan_file" />
+                </div>
             </div>
         </div>
         
@@ -173,10 +179,12 @@
             </div>
         </div>
         
+        <div class="status"></div>
         
         <div class="form-action">
         	<button type="submit" id="save-btn" class="btn btn-primary btn-lg btn-block">Kirim Permohonan</button>
         </div>
+        
         </form>	
     </div>
 </div>
@@ -205,6 +213,7 @@
 					var tmp = '<div class="alert alert-success">' + message + '</div>';
 					$("#form").append(tmp);
                 } else {
+					var pesan = "";
                     $.each(data.message, function (key, value) {
                         var element = $('#form #' + key);
                         element.closest('div.form-group')
@@ -214,9 +223,16 @@
                                 .remove();
 
                         element.after(value);
-						if(value.length > 0)
-							element.focus();
+						if( value )
+							pesan += value + "";
                     });
+					
+					$(".status").empty();
+					var tmp = '<div class="alert alert-danger"> <h4><i class="fa fa-lg fa-warning"></i> Perhatian! Form tidak lengkap.</h4>';
+					tmp += 'Perhatikan baris-baris yang diberi tanda merah';
+					tmp += '</div>';
+					$(".status").append(tmp);
+					
                     $("#save-btn").text('Simpan').removeAttr("disabled");
                 }
             },

@@ -26,7 +26,9 @@ class Frontend extends MY_Controller {
     public function index() {
         $this->load->model('Konten_statis_m');
         $this->load->model('Produk_hukum_m');
+        $this->load->model('Slideshow_m');
         
+        $data['dslide'] = $this->Slideshow_m->get_data('', 'id_slideshow desc');
         $data['sekilas'] = $this->Konten_statis_m->get_data(array('nama' => 'sekilas_jdih_home'));
         $data['terbaru'] = $this->Produk_hukum_m->get_data_terbaru(null, 'tanggal desc',5);
         //$data['page'] = $this->main_path . 'main.php';
@@ -84,7 +86,7 @@ class Frontend extends MY_Controller {
         
         $this->pagination->initialize($config);
         $result = $this->Produk_hukum_m->get_data_per_page($where, 'tanggal desc', $config['per_page'], $start);
-        $dkategori = $this->produk_hukum_kategori_m->get_data(null, 'no_urut');
+        $dkategori = $this->produk_hukum_kategori_m->get_data('id_group is null', 'no_urut');
         $tahun = $this->Produk_hukum_m->get_tahun();
         
         $data['tahun'] = $tahun;
@@ -113,7 +115,7 @@ class Frontend extends MY_Controller {
         $attach = $this->Sys_attach_dtl_m->get_data(array('attachid' => $id_dokumen));
         $komentar = $this->Produk_hukum_komentar_m->get_data(array('id_produk_hukum' => $id_produk_hukum, 'publish' => 'Y'));
         
-        $dkategori = $this->produk_hukum_kategori_m->get_data(null, 'no_urut');
+        $dkategori = $this->produk_hukum_kategori_m->get_data('id_group is null', 'no_urut');
         $tahun = $this->Produk_hukum_m->get_tahun();
         
         $data['tahun'] = $tahun;
@@ -121,7 +123,6 @@ class Frontend extends MY_Controller {
         $data['komentar'] = $komentar;
         $data['attach'] = $attach;
         $data['kategori'] = $this->produk_hukum_kategori_m->get_data_by_id($id_kategori);
-        $data['dkategori'] = $this->produk_hukum_kategori_m->get_data(null, "no_urut");
         $data['result'] = $result;
         $data['terbaru'] = $terbaru;
         $data['page'] = $this->main_path . "produk_hukum/detail_main";

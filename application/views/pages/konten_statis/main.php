@@ -108,7 +108,12 @@
         // reset form
         $.clearInput();
 		
-		$('#form #isi').val("");
+		CKEDITOR.instances.ckeditor.setData( "" );
+		// upload hide
+		$("#btn_gambar").show();
+		$("#btn_gambar").next().show();
+		$("#btn_gambar").next().next().show();
+		$("#delete-file-content").hide();
 		$("#gambar_content").empty();
 		$("#gambar_progress .progress-bar").css({"width":"0%"});
     });

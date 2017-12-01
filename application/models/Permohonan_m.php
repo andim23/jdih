@@ -128,7 +128,7 @@ class Permohonan_m extends My_model {
         return $this->db->update($this->table, $data, array($this->primary_key => $id));
     }
 
-    public function update_data_by_id($data = NULL, $id = NULL) {
+    public function update_data_by_id($data = NULL, $id = NULL, $file_name=null) {
         $this->db->trans_begin();
         
         $this->db->update($this->table, $data, array($this->primary_key => $id));
@@ -139,6 +139,24 @@ class Permohonan_m extends My_model {
             'id_permohonan_status' => $data['id_permohonan_status'],
             'notes' => $data['notes']
         );
+        
+        if( !empty($file_name) )
+        {
+            // insert
+            $this->db->insert('sys_attach', array('userinput' => $data['userupdate']));
+            $dh['id_berkas'] = $this->db->insert_id();
+            
+            for($i=0; $i < count($file_name); $i++){
+                $dpp = array
+                (
+                    'attachid' => $dh['id_berkas'],
+                    'title' => 'Berkas Pendukung',
+                    'filename' => $file_name[$i]
+                );
+                $this->db->insert('sys_attach_dtl', $dpp);
+            }
+        }
+        
         $this->db->insert('permohonan_status_h', $dh);
         
         if ($this->db->trans_status() === FALSE)

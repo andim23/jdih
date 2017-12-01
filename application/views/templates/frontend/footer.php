@@ -77,19 +77,17 @@
       </div>
     </div>    
     -->
+    
     <div class="footer-2-copy-cont clearfix">
       <!-- Social Links -->
       <div class="footer-2-soc-a right">
-        <a href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
-        <a href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
-        <!--<a href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel" title="Behance" target="_blank"><i class="fa fa-behance"></i></a>
-        <a href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel" title="LinkedIn+" target="_blank"><i class="fa fa-linkedin"></i></a>
-        <a href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel" title="Dribbble" target="_blank"><i class="fa fa-dribbble"></i></a>-->
+        <a href="<?= get_globalvar_by_name("jdih_fb", "val_varchar") ?>" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="<?= get_globalvar_by_name("jdih_twitter", "val_varchar") ?>" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
       </div>
       
       <!-- Copyright -->
       <div class="left">
-        <a class="footer-2-copy" href="http://themeforest.net/user/abcgomel/portfolio?ref=abcgomel" target="_blank">&copy; JDIH - Komisi Yudisial 2017</a>
+        <a class="footer-2-copy" href="<?= get_globalvar_by_name("ky_web", "val_varchar") ?>" target="_blank">&copy; JDIH - Komisi Yudisial 2017</a>
       </div>
     </div>
             

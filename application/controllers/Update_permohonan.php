@@ -82,8 +82,8 @@ class Update_permohonan extends MY_Controller {
             $id = $this->input->post('id_permohonan');
             $id_permohonan_status = $this->input->post('id_permohonan_status');
             $notes = $this->input->post('notes');
+            $file_name = $this->input->post('file_name');
             $userinput = $this->auth_user_id;
-
             
             // set POST data in Array
             $data = array(
@@ -94,7 +94,7 @@ class Update_permohonan extends MY_Controller {
             if (!empty($id)) {
                 $data['userupdate'] = $userinput;
                 $data['dateupdate'] = date('Y-m-d');
-                $result = $this->Permohonan_m->update_data_by_id($data, $id);
+                $result = $this->Permohonan_m->update_data_by_id($data, $id, $file_name);
             } else {
                 $result = false;
             }
@@ -113,8 +113,6 @@ class Update_permohonan extends MY_Controller {
 
         echo json_encode($r);
     }
-
-    
 
     public function admin_ajax_list() {
         // only allow ajax request
@@ -162,6 +160,8 @@ class Update_permohonan extends MY_Controller {
         $this->load->model('Sys_user_m');
         $this->load->model('Permohonan_status_h_m');
         $this->load->model('Permohonan_status_m');
+        $this->load->model('Sys_attach_dtl_m');
+        
         
         $x = $this->input->get('x');
         $y = $this->input->get('y');
@@ -180,6 +180,12 @@ class Update_permohonan extends MY_Controller {
             'id_permohonan' => $id_permohonan
         );
         $his = $this->Permohonan_status_h_m->get_data($where, 'dateinput desc');
+        
+        foreach($his as $rh){
+            $id_berkas = $rh->id_berkas;
+            $rh->berkas = $this->Sys_attach_dtl_m->get_data( array('attachid' => $id_berkas) );
+        }
+
         $data['status'] = $this->Permohonan_status_m->get_data(array('status !=' => 'Pengajuan'), 'no_urut');
         $data['his'] = $his;
         $data['detail'] = $detail;

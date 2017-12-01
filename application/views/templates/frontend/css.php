@@ -20,7 +20,7 @@
     
     <!-- ANIMATE -->	
     <link rel='stylesheet' href="<?= base_url() ?>theme/templates/frontend2/css/animate.min.css">
-    
+    <link rel="shortcut icon" href="<?= base_url() ?>theme/assets/admin/layout/img/icon.png" />
     <!-- IE Warning CSS -->
     <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie-warning.css" ><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie8-fix.css" ><![endif]-->

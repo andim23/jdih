@@ -122,7 +122,27 @@ class Permohonan extends MY_Controller {
             ),
             array(
                 'field' => 'no_permohonan',
-                'label' => 'no_permohonan',
+                'label' => 'No Permohonan',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'nota_dinas_file',
+                'label' => 'Berkas Nota Dinas',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'position_paper_file',
+                'label' => 'Berkas Position Paper',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'draft_rancangan_file',
+                'label' => 'Berkas Draft Rancangan File',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'tahapan_pembahasan_file',
+                'label' => 'Berkas Tahapan Pembahasan',
                 'rules' => 'required'
             )
             
@@ -249,6 +269,7 @@ class Permohonan extends MY_Controller {
         $this->load->model('produk_hukum_kategori_m');
         $this->load->model('Sys_user_m');
         $this->load->model('Permohonan_status_h_m');
+        $this->load->model('Sys_attach_dtl_m');
         
         $x = $this->input->get('x');
         $y = $this->input->get('y');
@@ -266,7 +287,12 @@ class Permohonan extends MY_Controller {
         $where = array(
             'id_permohonan' => $id_permohonan
         );
+        
         $his = $this->Permohonan_status_h_m->get_data($where, 'dateinput desc');
+        foreach($his as $rh){
+            $id_berkas = $rh->id_berkas;
+            $rh->berkas = $this->Sys_attach_dtl_m->get_data( array('attachid' => $id_berkas) );
+        }
         
         $data['his'] = $his;
         $data['detail'] = $detail;

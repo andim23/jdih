@@ -1,24 +1,39 @@
-<form action="<?= base_url() ?>user_profile/ganti_password_json" id="form_ganti_password">
-    <div class="alert alert-success hide">
-    	<button type="button" class="close" data-dismiss="alert"></button>
-    	Proses Ganti Password Berhasil.
+<div class="row">
+	<div class="col-md-8">
+        <form action="<?= base_url() ?>user_profile/ganti_password_json" id="form_ganti_password">
+            <div class="alert alert-success hide">
+                <button type="button" class="close" data-dismiss="alert"></button>
+                Proses Ganti Password Berhasil.
+            </div>
+            <div class="form-group">
+                <label class="control-label">Password Lama</label>
+                <input type="password" class="form-control" name="old_userpass" id="old_userpass" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Password Baru</label>
+                <input type="password" class="form-control" name="userpass" id="userpass" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Ulang Password Baru</label>
+                <input type="password" class="form-control" name="re_userpass" id="re_userpass" />
+            </div>
+            <div class="margin-top-10">
+                <button type="submit" class="btn green" id="ganti_password_btn">Ganti Password</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label class="control-label">Password Lama</label>
-        <input type="password" class="form-control" name="old_userpass" id="old_userpass" />
+    <div class="col-md-4">
+    	<h3>Informasi</h3>
+        <p>Password harus memiliki:</p>
+    	<ul>
+        	<li>Minimal 8 karakter</li>
+            <li>1 angka</li>
+            <li>1 huruf kecil</li>
+            <li>1 huruf besar</li>
+        </ul>
     </div>
-    <div class="form-group">
-        <label class="control-label">Password Baru</label>
-        <input type="password" class="form-control" name="userpass" id="userpass" />
-    </div>
-    <div class="form-group">
-        <label class="control-label">Ulang Password Baru</label>
-        <input type="password" class="form-control" name="re_userpass" id="re_userpass" />
-    </div>
-    <div class="margin-top-10">
-        <button type="submit" class="btn green" id="ganti_password_btn">Ganti Password</button>
-    </div>
-</form>
+</div>
+
 
 <script>
 	$("#form_ganti_password").submit(function(e) {

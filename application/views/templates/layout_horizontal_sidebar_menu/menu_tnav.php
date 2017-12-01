@@ -8,10 +8,7 @@
 		?>
         <li class="dropdown dropdown-user">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-            <?php if( $photo ) ?>
-            	<img alt="" class="img-circle hide1" id="pp_picture_top" src="<?= base_url() ?>mpo_upload/<?= $photo ?>"/>
-            <span class="username username-hide-on-mobile">
-            <?= $fullname ?> </span>
+            <span class="username username-hide-on-mobile"><i class="fa fa-user"></i> <?= $fullname ?> </span>
             <i class="fa fa-angle-down"></i>
             </a>
             <ul class="dropdown-menu">

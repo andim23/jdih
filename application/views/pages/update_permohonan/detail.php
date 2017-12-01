@@ -1,7 +1,22 @@
+<style>
+	.dz-preview{
+		display: none;
+	}
+</style>
 <div class="row">
     <div class="col-md-12">  
         <?php foreach($detail as $row){ ?>
         <form id="form" action="<?= base_url() ?>Update_permohonan/simpan_json" method="POST" class="form-horizontal">
+        <input type="hidden" name="id_permohonan" id="id_permohonan" value="<?= $this->uri->segment(3) ?>" />
+        
+        <?php
+        	if( $row->status == 'Publish' ){
+		?>
+        	<div class="alert alert-info">
+            	<b>Informasi.</b>
+                Data ini telah dipublish.
+            </div>
+        <?php } ?>
         
         <div class="form-group">
 			<div class="col-md-12">
@@ -144,6 +159,7 @@
         	</div>
         </div>
         
+        <?php if( $row->status != "Publish" ){ ?>
         <div class="form-group">
 			<div class="col-md-12">
         		<h3>Update Permohonan</h3>
@@ -165,16 +181,41 @@
         <div class="form-group">
         	<div class="col-md-12"><label>Keterangan</label></div>
             <div class="col-md-12">
-                <textarea class="form-control ckeditor" name="notes" id="notes"></textarea>
+                <textarea class="form-control ckeditor" name="txtnotes" id="txtnotes"></textarea>
             </div>
         </div>
         
         <div class="form-group">
-            <div class="col-md-6">
+            <div class="col-md-12 margin-bottom-20">
+                <button type="button" name="upload_berkas" id="upload_berkas" class="btn btn-block green">Unggah Berkas Pendukung</button>
+                <div class="progress progress-striped" role="progressbar" id="berkas_progress" 
+                    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="height:10px;"
+                >
+                  <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                </div>
+                <span class="help-block">
+                	Tipe Gambar pdf, doc, docx, ppt, pptx.
+                	Maksimal 5 Berkas yang diupload dalam satu waktu.
+                </span>
+                <div id="berkas_content"></div>
+            </div>
+        </div>
+        <?php
+			}else{
+		?>
+        	<div class="alert alert-info">
+            	<b>Informasi.</b>
+                Data ini telah dipublish.
+            </div>
+        <?php
+			}
+		?>
+        <div class="form-group">
+            <div class="col-md-6 margin-top-20">
                 <a href="<?= base_url() ?>update_permohonan?x=<?= $this->input->get('x') ?>&y=<?= $this->input->get('y') ?>" class="btn btn-lg default btn-block">Kembali</a>
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-6 margin-top-20">
                 <button type="submit" id="save-btn" class="btn btn-lg blue btn-block">Simpan</button>
             </div>
             
@@ -184,12 +225,72 @@
         <?php } ?>
     </div>
 </div>
-
+<script src="<?php echo base_url() ?>theme/assets/global/plugins/dropzone/dropzone.js"></script>
 <script>
 	$(document).ready(function(e) {
-        $("#id_permohonan_status").select2();
-		
+        $("#id_permohonan_status").select2();	
     });
+	
+	// upload file
+	var myDropzone = new Dropzone("#upload_berkas", { 
+		url: "<?= base_url() ?>Upload/do_upload_ph",
+		maxFiles:5,
+		acceptedFiles:".pdf, .doc, .docx, .ppt, .pptx",
+		dictDefaultMessage:"Upload Berkas (pdf, doc, docx, ppt, spptx)"
+	});
+	
+	myDropzone.on("totaluploadprogress", function(progress) {
+		$("#berkas_progress .progress-bar").css({"width":progress+"%"});
+	});
+		
+	myDropzone.on("success", function(file, response) {
+		obj = JSON.parse(response);
+		var info = obj.info;
+		if( info == '0' ){
+			alert(obj.message);
+		}else{
+			var file_name = obj.file_name;
+			//$("#berkas_content").empty();
+			var  tmp = "";
+				tmp += 	'<table class="table" width="100%">'
+				tmp += 	'<tr>';
+				tmp += 	'<td>';
+				tmp	+=	'<a href="<?= base_url() ?>upload/produk_hukum/'+file_name+'" target="_blank">'+file_name+'</a>';
+				tmp	+=	'<input type="hidden" name="file_name[]" value="'+file_name+'">';
+				tmp	+= 	' | ';
+				tmp += 	'<a href="#" file_name="'+file_name+'" class="delete-file-only"><i class="fa fa-lg fa-trash-o"></i></a>';
+				tmp	+=	'</td>';
+				tmp += 	'</tr>'
+				tmp	+= 	'</table>'
+			$("#berkas_content").append(tmp);
+		}
+		this.removeFile(file);
+	});
+	
+	$('.delete-file-only').live('click', function(e) {
+		e.preventDefault();
+		if(confirm("Anda yakin menghapus data ini ?")){
+			var file_name = $(this).attr('file_name');
+			data = 'file_name=' + file_name;
+			$.ajax({
+				cache: false,
+				type: "get",
+				url: "<?= base_url() ?>upload/delete_fileph_json",
+				data: data,
+				success: function (response) {
+					var data = JSON.parse(response);
+					var status = data.status;
+					var message = data.message;
+					if (status == '1') {
+						
+					} else {
+						alert('Gagal hapus file')
+					}
+				}
+			 });
+			 $(this).parent().parent().remove();
+		}
+	});
 	
 	$("#form").submit(function (e) {
         // prevent default action
@@ -197,12 +298,10 @@
         $("#save-btn").text('Menyimpan data ....').attr("disabled", "disabled");
         var url = $(this).attr("action");
 		
-		var notes = CKEDITOR.instances['notes'].getData();
+		var notes = CKEDITOR.instances['txtnotes'].getData();
 		notes = encodeURIComponent(notes);
-		var id_permohonan_status = $("#id_permohonan_status").val();
-		var id_permohonan = "<?= $this->uri->segment(3) ?>";
-		
-        var data = "id_permohonan_status=" + id_permohonan_status + "&notes=" + notes + "&id_permohonan=" + id_permohonan;
+        var data = $("#form").serialize();
+		data += "&notes=" + notes;
 		
         $.ajax({
             cache: false,
