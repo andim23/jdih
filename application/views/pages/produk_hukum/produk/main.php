@@ -96,7 +96,7 @@
             "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                 // <set you align column here>
                 $('td:eq(0)', nRow).attr("align", "right");
-                $('td:eq(6)', nRow).attr("align", "center");
+                $('td:eq(5)', nRow).attr("align", "center");
             },
         }
     });
@@ -140,7 +140,12 @@
         }
     });
 	
-	$(document).ready(function(e) {
-        $("#id_kategori").select2();
+	$("#btn-filter").click(function(e) {
+        var id_kategori = $("#id_kategori").val();
+		grid.clearAjaxParams();
+        grid.setAjaxParam("id_kategori", id_kategori);
+		grid.getDataTable().ajax.reload();
     });
+
+    $("#id_kategori").select2();
 </script>

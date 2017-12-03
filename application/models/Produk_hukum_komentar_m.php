@@ -84,9 +84,9 @@ class Produk_hukum_komentar_m extends My_model {
 
     function get_datatables($column_order, $order, $column_search, $where = null) {
         $this->_get_datatables_query($column_order, $order, $column_search);
-        if ($_POST['length'] != -1)
-            if (!empty($where))
+         if (!empty($where))
                 $this->db->where($where);
+if ($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
         return $query->result_array();

@@ -130,16 +130,15 @@
                 // if your form containing textarea then
                 // you can customize this code
                 var data = JSON.parse(response);
-                $.each(data[0], function (key, value) {
-                    var element = $("#" + key);
-                    if ($("#" + key).length > 0)
-                    {
-                        if (element.is(":input"))
-                            element.val(value);
-                        else
-                            element.text(value);
-                    }
-                });
+                var id_kategori = data[0].id_kategori;
+				var kategori = data[0].kategori;
+				var is_permohonan = data[0].is_permohonan;
+				var deskripsi = data[0].deskripsi!=null?data[0].deskripsi:"";
+				
+				$("#id_kategori").val(id_kategori);
+				$("#kategori").val(kategori);
+				$("#deskripsi").text(deskripsi);
+				$("#is_permohonan").select2('val', is_permohonan);
             }
         });
     });
@@ -200,7 +199,7 @@
                 } else {
                     $.each(data.message, function (key, value) {
                         var element = $('#form #' + key);
-                        console.log(element)
+                        
                         element.closest('div.form-group')
                                 .removeClass('has-error')
                                 .addClass(value.length > 0 ? 'has-error' : 'has-success')
@@ -220,5 +219,9 @@
             }
         });
 
+    });
+	
+	$(document).ready(function(e) {
+        $("#is_permohonan").select2();
     });
 </script>

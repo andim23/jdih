@@ -5,3 +5,4 @@ select		x.sitemapid, x.roleid, x.dateinput, x.dateupdate, x.userinput, x.userupd
 from		sys_privilege x
 left join	sys_sitemap y on x.sitemapid = y.sitemapid
 left join	sys_role z  on z.roleid = x.roleid
+;

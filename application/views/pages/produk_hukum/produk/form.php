@@ -46,12 +46,6 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-md-2 control-label">Produk Hukum <span class="required" aria-required="true">*</span></label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" value="<?= $produk_hukum ?>" name="produk_hukum" id="produk_hukum">
-                </div>
-            </div>
             
             <div class="form-group">
                 <label class="col-md-2 control-label">Judul <span class="required" aria-required="true">*</span></label>

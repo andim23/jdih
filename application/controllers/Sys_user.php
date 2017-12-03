@@ -49,8 +49,8 @@ class Sys_user extends MY_Controller {
         $data['dkategori'] = $dkategori;
         $data['breadcrumb'] = $breadcrumb;
         $data['page'] = $this->main_path . 'main.php';
-        $data['title'] = "Form Pengajuan"; // Capitalize the first letter
-        $data['htitle'] = "Form Pengajuan";
+        $data['title'] = $dy[0]->displayname; // Capitalize the first letter
+        $data['htitle'] = $dy[0]->displayname;
         $this->load->view($this->tmp_path, $data);
     }
 

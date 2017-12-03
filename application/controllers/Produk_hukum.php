@@ -42,7 +42,7 @@ class Produk_hukum extends MY_Controller {
             $dy[0]->displayname => base_url() . $dy[0]->url . '?x=' . $x . '&y=' . $y
         );
         
-        $kategori = $this->produk_hukum_kategori_m->get_data(null, 'kategori');
+        $kategori = $this->produk_hukum_kategori_m->get_data(array('is_permohonan' => 'N'), 'kategori');
 
         $data['kategori'] = $kategori;
         $data['breadcrumb'] = $breadcrumb;
@@ -217,14 +217,22 @@ class Produk_hukum extends MY_Controller {
         }
 
         $this->load->model('Produk_hukum_m');
-
+        
+        
+        $where = null;
+        
+        $id_kategori = $this->input->post('id_kategori');
+        
+        if( !empty($id_kategori) )
+            $where['id_kategori'] = $id_kategori;
+        
         $column_order = array(
-            'id_produk_hukum', 'tahun', 'kategori', 'produk_hukum', 'judul', 'subjudul', 'id_produk_hukum'
+            'id_produk_hukum', 'tahun', 'kategori', 'judul', 'subjudul', 'id_produk_hukum'
         );
         $column_search = $column_order;
         $order = array('dateinput' => 'desc'); // default order 
 
-        $list = $this->Produk_hukum_m->get_datatables($column_order, $order, $column_search);
+        $list = $this->Produk_hukum_m->get_datatables($column_order, $order, $column_search, $where);
         $data = array();
         $no = $_POST['start'];
         foreach ($list as $r) {
@@ -239,8 +247,8 @@ class Produk_hukum extends MY_Controller {
 
         $output = array(
             "draw" => $_POST['draw'],
-            "recordsTotal" => $this->Produk_hukum_m->count_all(),
-            "recordsFiltered" => $this->Produk_hukum_m->count_filtered($column_order, $order, $column_search),
+            "recordsTotal" => $this->Produk_hukum_m->count_all($where),
+            "recordsFiltered" => $this->Produk_hukum_m->count_filtered($column_order, $order, $column_search, $where),
             "data" => $data,
         );
         echo json_encode($output);
@@ -276,7 +284,7 @@ class Produk_hukum extends MY_Controller {
             'Form' => ''
         );
         
-        $kategori = $this->produk_hukum_kategori_m->get_data(null, 'kategori');
+        $kategori = $this->produk_hukum_kategori_m->get_data(array('is_permohonan' => 'N'), 'kategori');
         $result = $this->Produk_hukum_m->get_data_by_id($id);
         $id_dokumen = isset($result[0]->id_dokumen)?$result[0]->id_dokumen:0;
         $where = array('attachid' => $id_dokumen);

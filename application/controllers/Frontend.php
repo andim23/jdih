@@ -110,7 +110,7 @@ class Frontend extends MY_Controller {
         $where = array('id_kategori' => $id_kategori);
 
         $result = $this->Produk_hukum_m->get_data_by_id($id_produk_hukum);
-        $terbaru = $this->Produk_hukum_m->get_data_terbaru($where, 'tanggal desc');
+        $terbaru = $this->Produk_hukum_m->get_data_terbaru(null, 'tanggal desc');
         $id_dokumen = isset($result[0]->id_dokumen)?$result[0]->id_dokumen:null;
         $attach = $this->Sys_attach_dtl_m->get_data(array('attachid' => $id_dokumen));
         $komentar = $this->Produk_hukum_komentar_m->get_data(array('id_produk_hukum' => $id_produk_hukum, 'publish' => 'Y'));

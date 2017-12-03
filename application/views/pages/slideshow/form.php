@@ -24,6 +24,7 @@
                     	<center><a href="#" class="delete-file"><i class="fa fa-trash-o"></i> Hapus</a></center>
                     </div>
                     <input type="hidden" name="gambar" id="gambar" />
+                	<span class="help-block">Ukuran Gambar 1140 * 335 pixel</span>
                 </div>
             </div>
         </form>

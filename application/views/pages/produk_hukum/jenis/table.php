@@ -6,7 +6,7 @@
     <thead>
         <tr role="row" class="heading">
             <th width="50">No</th>
-            <th>Kategori</th>
+            <th>Jenis</th>
             <th>Deskripsi</th>
             <th width="50">&nbsp;</th>
         </tr>

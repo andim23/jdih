@@ -108,12 +108,12 @@ CREATE TABLE IF NOT EXISTS `auth_login_errors` (
   `ip_address` varchar(45) NOT NULL,
   `time` datetime NOT NULL,
   PRIMARY KEY (`ai`)
-) ENGINE=MyISAM AUTO_INCREMENT=345 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=347 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_jdih.auth_login_errors: 1 rows
 /*!40000 ALTER TABLE `auth_login_errors` DISABLE KEYS */;
 INSERT INTO `auth_login_errors` (`ai`, `username_or_email`, `ip_address`, `time`) VALUES
-	(344, 'umumUser1234', '::1', '2017-11-25 02:47:17');
+	(346, 'admin', '::1', '2017-11-30 23:57:56');
 /*!40000 ALTER TABLE `auth_login_errors` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.auth_sessions
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `auth_sessions` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.auth_sessions: 23 rows
+-- Dumping data for table db_jdih.auth_sessions: 28 rows
 /*!40000 ALTER TABLE `auth_sessions` DISABLE KEYS */;
 INSERT INTO `auth_sessions` (`id`, `user_id`, `login_time`, `modified_at`, `ip_address`, `user_agent`) VALUES
 	('03c10e69b3754f3a05c93cf1858672f973a85603', 1, '2017-10-31 12:41:01', '2017-10-31 22:26:53', '::1', 'Chrome 61.0.3163.100 on Windows 10'),
@@ -153,7 +153,12 @@ INSERT INTO `auth_sessions` (`id`, `user_id`, `login_time`, `modified_at`, `ip_a
 	('703af815eac5cb1f6fb5611e45168b198c5696ed', 3, '2017-11-19 15:04:29', '2017-11-19 22:04:29', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
 	('617dfdd31c3e0d93c118f15df3c3eb4c4949e774', 1, '2017-11-20 11:59:42', '2017-11-20 18:59:42', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
 	('6be5523593f3a2de013355e8a9963873dcb47eca', 4, '2017-11-25 02:47:27', '2017-11-25 09:52:33', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
-	('032a57d857534052de84eeddc3f431d75eb4addb', 1, '2017-11-25 02:52:37', '2017-11-25 09:52:37', '::1', 'Chrome 62.0.3202.94 on Windows 10');
+	('032a57d857534052de84eeddc3f431d75eb4addb', 1, '2017-11-25 02:52:37', '2017-11-25 09:52:37', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
+	('607ed59a2d45a67c12608e3c84e55dfc7be88e54', 1, '2017-11-28 07:55:04', '2017-11-28 14:55:04', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
+	('909096004582508cb834354dbd059933698a05d1', 1, '2017-11-30 13:50:14', '2017-11-30 21:27:00', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
+	('4482bc9a500cf146638d629f0149198375a1eb64', 1, '2017-11-30 22:45:59', '2017-12-01 06:05:46', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
+	('36c15819ae66db1a8da4818a86cda7ed971efa6d', 1, '2017-11-30 23:29:29', '2017-12-01 06:41:08', '::1', 'Chrome 62.0.3202.94 on Windows 10'),
+	('3588ea48e94dcd71c2befa89e0b9b0ed95e606f9', 1, '2017-12-03 09:02:03', '2017-12-03 17:24:54', '::1', 'Chrome 62.0.3202.94 on Windows 10');
 /*!40000 ALTER TABLE `auth_sessions` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.auth_username_or_email_on_hold
@@ -196,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `auth_users` (
 -- Dumping data for table db_jdih.auth_users: ~6 rows (approximately)
 /*!40000 ALTER TABLE `auth_users` DISABLE KEYS */;
 INSERT INTO `auth_users` (`user_id`, `username`, `email`, `nickname`, `fullname`, `biro`, `usertelpno`, `auth_level`, `banned`, `passwd`, `passwd_recovery_code`, `passwd_recovery_date`, `passwd_modified_at`, `last_login`, `created_at`, `modified_at`) VALUES
-	(1, 'admin', 'admin@email.com', 'Admin', 'Administrator', 'Administrator', '123', 1, '0', '$2y$11$eAiQVPLDrbemhQrkb0qt1.Ac3Nhb1pmdgOBbPbgstYIngb1m9NACO', NULL, NULL, NULL, '2017-11-25 02:52:37', '2017-10-28 08:06:14', '2017-11-25 09:52:37'),
+	(1, 'admin', 'admin@email.com', 'Admin', 'Administrator', 'Administrator', '123', 1, '0', '$2y$11$QWPPd1uMDbdVPlAMDlga5OZsP9oVeIr59NQJVR2Ki2rftFWgUCfJu', NULL, NULL, '2017-11-30 00:00:00', '2017-12-03 09:02:03', '2017-10-28 08:06:14', '2017-12-03 16:02:03'),
 	(2, 'rekrutmen_hakim', 'rekrutmen_hakim@email.com', 'Biro Rekrutmen Hakim', 'Biro Rekrutmen Hakim', 'Biro Rekrutmen Hakim', '', 2, '0', '$2y$11$UhleYt18KPaf7yxSpL40Tu3zSRtof6KGjM.iRTvDjcDB.VbhXVTQK', NULL, NULL, NULL, NULL, '2017-11-19 00:00:00', '2017-11-19 20:05:32'),
 	(3, 'pengawasan_hakim', 'pengawasan_hakim@gmail.com', 'Biro Pengawasan Hakim', 'Biro Pengawasan Hakim', 'Biro Pengawasan Hakim', '', 2, '0', '$2y$11$oR/kGsGU586ojY0yxcf9MOCe4CgtoT4vjAq1FUZ2V6BIv6k3DvjQe', NULL, NULL, NULL, '2017-11-19 15:04:29', '2017-11-19 00:00:00', '2017-11-19 22:04:29'),
 	(4, 'umum', 'umum@gmail.com', 'Biro Umum', 'Biro Umum', 'Biro Umum', '', 2, '0', '$2y$11$C2i38HBlpQFuZzyVSc2OHegPxZHSjm5wJ3/7Io8DvoW9XgRrQNTUW', NULL, NULL, NULL, '2017-11-25 02:47:27', '2017-11-19 00:00:00', '2017-11-25 09:47:27'),
@@ -244,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `konten_statis` (
 INSERT INTO `konten_statis` (`recid`, `nama`, `judul`, `isi`, `id_gambar`, `id_dokumen`, `dateinput`, `dateupdate`, `userinput`, `userupdate`) VALUES
 	(2, 'sekilas_jdih', 'Sekilas JDIH', 'Jaringan Dokumentasi dan Informasi Hukum (JDIH) Nasional sebagaimana yang dimaksud dalam Pasal 1 Peraturan Presiden Nomor 33 tahun 2012 adalah:<div><div><br><b>"Wadah pendayagunaan bersama atas dokumen hukum secara tertib, terpadu, dan berkesinambungan, serta merupakan sarana pemberian pelayanan informasi hukum secara lengkap, akurat, mudah dan cepat"</b><br><br></div></div>Berkembangnya suatu zaman ditandai dengan kemudahan setiap individu (publik) dalam memperoleh sesuatu yang diinginkan atau dibutuhkannya, dan kebutuhan akan sebuah informasi menjadi suatu keharusan yang mesti dipenuhi. Terlebih lagi di era reformasi keberadaan Informasi di bidang hukum menjadi sesuatu yang dibutuhkan, mengingat nilai-nilai normatif dalam suatu aturan hukum dijadikan acuan dalam menjalankan aktivitasnya, selain itu proses penanganan hukum yang transparan terhadap kasus-kasus yang menjadi sorotan publik mendapat perhatian penuh dari masyarakat luas yang ingin mengetahuinya.Keberadaan sebuah wadah yang dapat menyajikan informasi mengenai kasus-kasus hukum dan data produk hukum yang berlaku yang selalu di up-date menjadi sesuatu yang dibutuhkan. Dokumentasi terhadap sebuah produk hukum dalam institusi pemerintah menjadi kewenangan Kementerian Hukum dan HAM, akan tetapi informasi mengenai pemberitaan informasi hukum dapat dilakukan oleh institusi yang lain, sehingga antar institusi pemerintah saling terintegrasi dalam memberikan informasi hukum yang realibility.<h3>Sejarah Singkat Jaringan Dokumentasi dan Informasi Hukum (JDIH) Nasional</h3>Keberadaan dokumentasi dan perpustakaan hukum yang baik merupakan syarat mutlak untuk membina hukum di Indonesia, inilah yang menjadi pemikiran mengenai pentingnya keberadaan JDIH untuk pertama kali yang dikemukakan dalam Seminar Hukum Nasional III di Surabaya pada Tahun 1974. Seminar ini merekomendasikan “perlu adanya suatu kebijakan nasional untuk mulai menyusun suatu Sistem Jaringan Dokumentasi dan Informasi (SJDI) Hukum, agar dapat secepatnya berfungsi”. Hal ini didorong oleh keberadaan dokumentasi dan perpustakaan hukum di Indonesia yang masih dalam keadaan lemah dan kurang mendapat perhatian pada saat itu.Hasil dari seminar tersebut oleh Badan Pembinaan Hukum Nasional direspon dengan memprakarsai beberapa lokakarya, diantaranya dilaksanakan di Jakarta pada Tahun 1975, di Malang pada Tahun 1977 dan Pontianak pada Tahun 1977 dengan agenda pokok membahas kearah terwujudnya SJDIH serta menentukan program-program kegiatan yang dapat mendukung terwujudnya dan terlaksananya pemikiran yang dicetuskan pada tahun 1974.Pada Tahun 1978 dalam sebuah lokakarya yang diselenggarakan di Jakarta, menyepakati bahwa Pusat JDIH berskala nasional adalah Badan Pembinaan Hukum Nasional. Sedangkan yang menjadi anggotanya adalah Biro-biro hukum Departemen, LPND, Lembaga Tertinggi/Tinggi Negara (saat ini tidak ada lagi sebutan Lembaga Tertinggi), Pemerintah Daerah Tingkat I (berdasarkan UU 22/1999 kemudian dinyatakan tidak berlaku lagi oleh UU 32/2004 menjadi Pemerintah Provinsi). Namun, pada pelaksanaannya hanya berdasar pada kesepakatan bersama, dan belum ada landasan hukum yang mengikat.Saat itu dimulailah perjuangan dari instansi yang merasa telah siap, dengan melakukan gerakan maju, membentuk koordinasi struktur organisasi, menyusun perencanaan program kegiatan, mewujudkan sarana fisik, mengumpulkan koleksi peraturan, melatih dan mendidik sumber daya manusia berkaitan dengan dokumentasi dan informasi, serta menyusun anggaran untuk semua kegiatan diatas.Setelah kegiatan jaringan dokumentasi dan informasi hukum berjalan lebih dari dua puluh tahun, Pemerintah menerbitkan Keputusan (baca Peraturan) Presiden Nomor 91 Tahun 1999 (LN RI tahun 1999 No.135) tentang Jaringan Dokumentasi dan Informasi Hukum Nasional. Keputusan Presiden inilah yang kemudian merupakan landasan hukum untuk lebih memacu dan mengembangkan JDIH ke arah yang lebih baik, lebih maju untuk kepentingan bangsa dan negara.Dengan dikeluarkannya Keppres tersebut keanggotaan JDIH ditambah meliputi seluruh Pemerintah daerah Kabupaten/Kota; Pengadilan Tingkat Banding dan Tingkat Pertama; Pusat Dokumentasi pada Perguruan Tinggi di Indonesia; Lembaga-lembaga lain yang bergerak di bidang pengembangan dokumentasi dan informasi hukum yang ditetapkan oleh Menteri Kehakiman (baca Hukum dan HAM).Kebutuhan dalam mendukung penyelenggaraan jaringan dokumentasi dan informasi hukum nasional yang terpadu dan terintegrasi menuntut adanya penyesuaian terhadap Keppres No 91 Tahun 1999. Oleh karena itu, Kementerian Hukum dan HAM telah menerbitkan Peraturan Presiden Nomor 33 Tahun 2012 sebagai pengganti Keppres No 91 Tahun 1999.<span>Kegiatan JDIH dikondisikan dapat memberikan akses layanan publik dalam rangka menyebarluaskan informasi hukum dan data produk hukum secara mudah, cepat dan akurat dan kepada kalangan internal Lemsaneg maupun masyarakat umum. Selain itu diharapkan kepada pegawai Lemsaneg khususnya dapat memanfaatkan layanan tersebut ssecara optimal guna tercipta insan yang taat dan sadar terhadap hukum dan aturan yang berlaku.</span>', NULL, NULL, '2017-11-04 09:51:11', '0000-00-00', '1', ''),
 	(3, 'tupoksi_jdih', 'Tupoksi JDIH', 'Landasan kerja untuk pelaksanaan dan pengolahan JDIH yang telah disusun oleh para pakar dokumentasi dan informasi hukum meliputi beberapa aspek, antara lain:<ul><li><span>Organisasi dan Metoda<br></span>tersedianya unit organisasi atau unit kerja yang mewadahi secara khusus tugas dan fungsi dokumentasi dan informasi hukum dengan berpedoman pada modul-modul kerja yang sudah dibaku-seragamkan untuk setiap jenis kegiatan pengelolaan JDIH.</li></ul><ul><li><span>Personalia dan Diklat<br></span>tersedianya personil yang menangani secara khusus kegiatan JDIH dan mengikuti bimbingan teknis pengelolaan JDIH secara manual maupun otomasi.</li></ul><ul><li><span>Koleksi dan Teknis<br></span>memiliki koleksi bahan dokumentasi hukum berupa peraturan perundang-undangan dan non-peraturan yang telah diolah menggunakan sistem temu kembali guna menyajikan layanan informasi hukum. Semakin lengkap koleksi yang dimiliki, semakin besar peluang untuk memberikan layanan informasi hukum yang diperlukan oleh publik, aparatur negara, kalangan akademisi dan profesi hukum lainnya serta masyarakat luas pada umumnya.</li></ul><ul><li><span>Sarana dan Prasarana<br></span>tersedianya ruangan yang memadai untuk ruang baca, ruang kerja dan ruang penyimpanan yang dilengkapi dengan prasarana yang cukup berupa furniture, mesin foto kopi, telepon, faksimili, komputer dll.</li></ul><ul><li><span>Mekanisme dan Otomasi<br></span>terciptanya tata kerja dan alur kerja yang tertib dalam setiap jenis kegiatan dan melakukan otomasi dengan memanfaatkan Teknologi Informasi dan Komunikasi sehingga tercapai efisiensi dan efektifitas kerja yang tinggi.</li></ul><h3>Fungsi Jaringan Dokumentasi dan Informasi Hukum Nasional</h3>Fungsi JDIH sebagaimana yang diatur dalam pasal 2 Keppres Nomor 91 Tahun 1999 tentang JDIH Nasional adalah :<ul><li>sebagai salah satu upaya penyediaan sarana pembangunan bidang hukum;</li><li>untuk meningkatkan penyebarluasan dan pemahaman pengetahuan hukum;</li><li>untuk memudahkan pencarian dan penelusuran peraturan perundang-undangan dan bahan dokumentasi lainnya;</li><li>untuk meningkatkan pemberian pelayanan pelaksanaan penegakan hukum dan kepastian hukum.</li></ul><h3>Tugas dan Fungsi Pusat Jaringan</h3>BPHN sebagai Pusat Jaringan mempunyai tugas melakukan pembinaan, pengembangan, pemantauan, dan pelayanan Sistem JDIH Nasional. Dalam rangka melaksanakan tugasnya, Pusat Jaringan menyelenggarakan fungsi:<ul><li>perumusan kebijaksanaan pengembangan dan pelayanan sistem Jaringan Dokumentasi dan Informasi Hukum Nasional.;</li><li>bertindak sebagai pusat rujukan informasi dan dokumentasi hukum nasional;</li><li>pengumpulan dan penyebarluasan bahan dokumentasi dan informasi hukum kepada para Anggota Jaringan, baik dalam bentuk salinan, abstraksi, panduan penemuan kembali, maupun bentuk lainnya;</li><li>pembinaan tenaga pengelola dokumentasi dan informasi hukum;</li><li>pembinaan kerja sama diantara Anggota Jaringan;</li><li>evaluasi secara berkala terhadap pelaksanaan Jaringan Dokumentasi dan Informasi Hukum;</li><li>pelayanan informasi dan dokumentasi hukum nasional kepada masyarakat.</li></ul>Dalam rangka melaksanakan fungsi JDIH Nasional, Anggota Jaringan menyelenggarakan:<ul><li>penyimpanan dan pengolahan dokumentasi peraturan perundang-undangan dan dokumentasi hukum lainnya yang ditetapkan atau dimiliki instansi, atau diterima dari Pusat jairngan;</li><li>penyampaian salinan peraturan perundang-undangan yang ditetapkan dan atau disahkan oleh Presiden, Menteri, Gubernur, Bupati, Walikota atau Pimpinan Instansi/Lembaga Pemerintah lainnya kepada Pusat Jaringan, dalam bentuk dan jumlah yang disepakati bersama;</li><li>penyediaan dan penyebarluasan informasi segala peraturan perundang-undangan yang tersedia dan dokumentasi hukum lainnya di lingkungan instansinya, dan masyarakat yang memerlukannya;</li><li>pengembangan tenaga pengelola dan sarana dokumentasi dan informasi hukum di lingkungan instansinya;</li><li>evaluasi secara berkala terhadap pengelolaan Jaringan Dokumentasi dan Informasi Hukum di lingkungannya dan menyampaikan hasil-hasilnya kepada Pusat Jaringan.</li></ul>', NULL, NULL, '2017-11-04 09:51:20', '0000-00-00', '1', ''),
-	(4, 'struktur_organisasi_jdih', 'Struktur Organisasi JDIH', 'Berdasarkan Keputusan Presiden Nomor Nomor 91 tahun 1999, dengan nomenklatur yang sudah diperbaharui berdasarkan peraturan perundang-undangan yang berlaku (Perpres Nomor 47 Tahun 2009 tentang Pembentukan dan Organisasi Kementerian Negara), bahwa:<ul><li>Pusat Jaringan adalah Badan Pembinaan Hukum Nasional, Kementerian Hukum dan HAM.</li><li>Anggota Jaringan adalah unit kerja yang melaksanakan tugas dalam bidang hukum dan peraturan perundang-undangan pada kementerian, non kementerian, pemerintah provinsi, pemerintah kabupaten/kota, pusat dokumentasi pada perguruan tinggi di Indonesia, dan Lembaga-lembaga lain terkait yang ditetapkan oleh Menkumham.</li></ul><h3>Penyelenggaraan Jaringan Dokumentasi dan Informasi Hukum di Lembaga Sandi Negara</h3>Berdasar pada Kepres tersebut diatas Lembaga Sandi Negara yang merupakan bagian dari Lembaga Kementerian Non Kementerian, termasuk dalam Anggota Jaringan (JDIH). Berdasarkan Peraturan Kepala Lemsaneg Nomor OT.001/PERKA.122/2007 tentang Orgnanisasi dan Tata Kerja Lemsaneg, terdapat unit kerja yang mempunyai tugas melakukan penyiapan bahan pelayanan hukum dan inventarisasi serta dokumentasi hukum yakni Subbagian Pelayanan dan Dokumentasi Hukum Bagian Kumortala Biro PHKH Settama.Selain itu berdasarkan Peraturan Kepala Lemsaneg Nomor 8 Tahun 2009 tentang Pelayanan Hukum, dalam Pasal 7 dan 8 disebutkan bahwa:<ul><li>JDIH Lemsaneg merupakan anggota JDIH Nasional;</li><li>JDIH Lemsaneg melaksanakan penyimpanan dan pengolahan dokumentasi produk hukum yang diterima dari unit kerja di Lemsaneg dan/atau dari Pusat JDIH, serta;</li><li>JDIH Lemsaneg melaksanakan penyediaan dan penyebarluasan informasi peraturan perundang-undangan dan dokumentasi hukum secara elektronik.</li></ul>', 13, NULL, '2017-11-04 10:14:58', '2017-11-04', '1', '1'),
+	(4, 'struktur_organisasi_jdih', 'Struktur Organisasi JDIH', '<p><strong>Profil Pejabat Struktural Eselon 1 dan 2</strong></p>\n\n<p><strong>Sekretaris Jenderal Komisi Yudisial</strong></p>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:791px">\n	<tbody>\n		<tr>\n			<td style="width:263px">\n			<p><strong>Nama:</strong></p>\n			</td>\n			<td style="width:519px">\n			<p><strong>Danang Wijayanto, Ak., M.Si.</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>NIP:</p>\n			</td>\n			<td style="width:519px">\n			<p>196204021982031001</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Jabatan:</p>\n			</td>\n			<td style="width:519px">\n			<p>Sekretaris Jenderal</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Golongan:</p>\n			</td>\n			<td style="width:519px">\n			<p>IV-D</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Latar Belakang Pendidikan :</p>\n			</td>\n			<td style="width:519px">\n			<p>S2 &ndash; Magister Ekonomi Pembangunan</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Jenis Kelamin:</p>\n			</td>\n			<td style="width:519px">\n			<p>Laki-laki</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Tempat tgl lahir:</p>\n			</td>\n			<td style="width:519px">\n			<p>Yogyakarta, 2 April 1962</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Nomor Telepon:</p>\n			</td>\n			<td style="width:519px">\n			<p>021 3905876/3905877</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>ALamat:</p>\n			</td>\n			<td style="width:519px">\n			<p>Jl. Kramat Raya No 57 Jakarta Pusat</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Penghargaan yang didapat:</p>\n			</td>\n			<td style="width:519px">\n			<p>-</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n\n<p>&nbsp;</p>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:768px">\n	<tbody>\n		<tr>\n			<td style="width:258px">\n			<p><strong>Nama:</strong></p>\n			</td>\n			<td style="width:501px">\n			<p><strong>Ari Sudihar, S.H., M.Hum.</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>NIP:</p>\n			</td>\n			<td style="width:501px">\n			<p>19710123 199603 1 003</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Jabatan :</p>\n			</td>\n			<td style="width:501px">\n			<p>Kepala Biro Rekrutmen, Advokasi dan Peningkatan Kapasitas Hakim</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Golongan:</p>\n			</td>\n			<td style="width:501px">\n			<p>IV/b</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Latar Belakang Pendidikan&nbsp; :</p>\n			</td>\n			<td style="width:501px">\n			<p>S2</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Jenis Kelamin:</p>\n			</td>\n			<td style="width:501px">\n			<p>Laki-laki</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Tempat tgl lahir:</p>\n			</td>\n			<td style="width:501px">\n			<p>Jakarta, 23 Januari 1971</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Nomor Telepon:</p>\n			</td>\n			<td style="width:501px">\n			<p>021 3905876/3905877</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>ALamat :</p>\n			</td>\n			<td style="width:501px">\n			<p>Jl. Kramat Raya No 57 Jakarta Pusat</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Penghargaan yang didapat:</p>\n			</td>\n			<td style="width:501px">\n			<p>-</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n\n<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:768px">\n	<tbody>\n		<tr>\n			<td style="height:30px; width:214px">\n			<p><strong>Nama:</strong></p>\n			</td>\n			<td style="height:30px; width:403px">\n			<p><strong>KMS A. Roni, S.H., M.H.</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:15px; width:214px">\n			<p>NIP:</p>\n			</td>\n			<td style="height:15px; width:403px">\n			<p>19660612 199503 1 002</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:12px; width:214px">\n			<p>Jabatan:</p>\n			</td>\n			<td style="height:12px; width:403px">\n			<p>Kepala Biro Pengawasan Perilaku Hakim</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:19px; width:214px">\n			<p>Golongan:</p>\n			</td>\n			<td style="height:19px; width:403px">\n			<p>IV-C</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:19px; width:214px">\n			<p>Latar Belakang Pendidikan :</p>\n			</td>\n			<td style="height:19px; width:403px">\n			<p>S2 &nbsp;&nbsp;</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:18px; width:214px">\n			<p>Jenis Kelamin:</p>\n			</td>\n			<td style="height:18px; width:403px">\n			<p>Laki-laki</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:18px; width:214px">\n			<p>Tempat tgl lahir:</p>\n			</td>\n			<td style="height:18px; width:403px">\n			<p>Tanjung Aur, 12 Juni 1966</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:18px; width:214px">\n			<p>Nomor Telepon:</p>\n			</td>\n			<td style="height:18px; width:403px">\n			<p>021 3905876/3905877</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:18px; width:214px">\n			<p>ALamat :</p>\n			</td>\n			<td style="height:18px; width:403px">\n			<p>Jl. Kramat Raya No 57 Jakarta Pusat</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:18px; width:214px">\n			<p>Penghargaan yang didapat:</p>\n			</td>\n			<td style="height:18px; width:403px">\n			<p>-</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n\n<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:768px">\n	<tbody>\n	</tbody>\n</table>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:768px">\n	<tbody>\n		<tr>\n			<td style="width:258px">\n			<p><strong>Nama:</strong></p>\n			</td>\n			<td style="width:501px">\n			<p><strong>Brigjen Pol. Drs. Johanes Kwartanto Hariadi</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>NIP:</p>\n			</td>\n			<td style="width:501px">\n			<p>59121311</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Jabatan :</p>\n			</td>\n			<td style="width:501px">\n			<p>Kepala Biro Investigasi</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Golongan:</p>\n			</td>\n			<td style="width:501px">\n			<p>-</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Latar Belakang Pendidikan&nbsp; :</p>\n			</td>\n			<td style="width:501px">\n			<p>&nbsp;</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Jenis Kelamin:</p>\n			</td>\n			<td style="width:501px">\n			<p>Laki-laki</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Tempat tgl lahir:</p>\n			</td>\n			<td style="width:501px">\n			<p>Semarang, 23 Desember 1959</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Nomor Telepon:</p>\n			</td>\n			<td style="width:501px">\n			<p>021 3905876/3905877</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>ALamat :</p>\n			</td>\n			<td style="width:501px">\n			<p>Jl. Kramat Raya No 57 Jakarta Pusat</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:258px">\n			<p>Penghargaan yang didapat:</p>\n			</td>\n			<td style="width:501px">\n			<p>-</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n\n<p>&nbsp;</p>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:768px">\n	<tbody>\n		<tr>\n			<td style="width:262px">\n			<p><strong>Nama:</strong></p>\n			</td>\n			<td style="width:497px">\n			<p><strong>Ir. Ronny Dolfinus Tulak, MM</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>NIP:</p>\n			</td>\n			<td style="width:497px">\n			<p>195907021987031001</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>Jabatan :</p>\n			</td>\n			<td style="width:497px">\n			<p>Kepala Biro Perencanaan dan Kepatuhan Internal</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>Golongan:</p>\n			</td>\n			<td style="width:497px">\n			<p>IV-B</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>Latar Belakang Pendidikan :</p>\n			</td>\n			<td style="width:497px">\n			<p>S2 -&nbsp;</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>Jenis Kelamin:</p>\n			</td>\n			<td style="width:497px">\n			<p>Laki-laki</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>Tempat tgl lahir:</p>\n			</td>\n			<td style="width:497px">\n			<p>Ujung Pandang, 2 Juli 1959</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>Nomor Telepon:</p>\n			</td>\n			<td style="width:497px">\n			<p>021 3905876/3905877</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:262px">\n			<p>ALamat :</p>\n			</td>\n			<td style="width:497px">\n			<p>Jl. Kramat Raya No 57 Jakarta Pusat</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n\n<p>&nbsp;&nbsp;</p>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:768px">\n	<tbody>\n		<tr>\n			<td style="width:263px">\n			<p><strong>Nama:</strong></p>\n			</td>\n			<td style="width:496px">\n			<p><strong>Roejito, S.Sos., M.Si.</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>NIP:</p>\n			</td>\n			<td style="width:496px">\n			<p>195909211982031004</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Jabatan:</p>\n			</td>\n			<td style="width:496px">\n			<p>Plt. Kepala Biro Umum</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Golongan:</p>\n			</td>\n			<td style="width:496px">\n			<p>IV-C</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Latar Belakang Pendidikan:</p>\n			</td>\n			<td style="width:496px">\n			<p>S2 - Kebijakan Publik</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Jenis Kelamin:</p>\n			</td>\n			<td style="width:496px">\n			<p>Laki-laki</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Tempat tgl lahir:</p>\n			</td>\n			<td style="width:496px">\n			<p>Tegal, 21 September 1959&nbsp;</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Nomor Telepon:</p>\n			</td>\n			<td style="width:496px">\n			<p>021 3905876/3905877</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>ALamat:</p>\n			</td>\n			<td style="width:496px">\n			<p>Jl. Kramat Raya No 57 Jakarta Pusat</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:3px; width:263px">\n			<p>Penghargaan yang didapat:</p>\n			</td>\n			<td style="height:3px; width:496px">\n			<p>Satyalancana Karya Satya 10 Tahun, 20 Tahun, 30 Tahun</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n\n<p>&nbsp;</p>\n\n<table border="0" cellpadding="0" cellspacing="3" style="width:768px">\n	<tbody>\n		<tr>\n			<td style="width:263px">\n			<p><strong>Nama:</strong></p>\n			</td>\n			<td style="width:496px">\n			<p><strong>Roejito, S.Sos., M.Si.</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>NIP:</p>\n			</td>\n			<td style="width:496px">\n			<p>195909211982031004</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Jabatan:</p>\n			</td>\n			<td style="width:496px">\n			<p>Kepala Pusat Analisis dan Layanan Informasi</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Golongan:</p>\n			</td>\n			<td style="width:496px">\n			<p>IV-C</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Latar Belakang Pendidikan:</p>\n			</td>\n			<td style="width:496px">\n			<p>S2 - Kebijakan Publik</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Jenis Kelamin:</p>\n			</td>\n			<td style="width:496px">\n			<p>Laki-laki</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Tempat tgl lahir:</p>\n			</td>\n			<td style="width:496px">\n			<p>Tegal, 21 September 1959&nbsp;</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>Nomor Telepon:</p>\n			</td>\n			<td style="width:496px">\n			<p>021 3905876/3905877</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="width:263px">\n			<p>ALamat:</p>\n			</td>\n			<td style="width:496px">\n			<p>Jl. Kramat Raya No 57 Jakarta Pusat</p>\n			</td>\n		</tr>\n		<tr>\n			<td style="height:3px; width:263px">\n			<p>Penghargaan yang didapat:</p>\n			</td>\n			<td style="height:3px; width:496px">\n			<p>Satyalancana Karya Satya 10 Tahun, 20 Tahun, 30 Tahun</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n', 13, NULL, '2017-12-03 16:18:01', '2017-12-03', '1', '1'),
 	(5, 'visi_misi_jdih', 'Visi Misi JDIH', 'Jaringan Dokumentasi dan Informasi Hukum (JDIH) Lembaga Sandi Negara merupakan sistem yang dibangun untuk melaksanakan sebagian tugas dan fungsi Biro Perencanaan, Hukum, Kepegawaian dan Hubungan Masyarakat (PHKH) selaku anggota Jaringan Dokumentasi dan Informasi Hukum Nasional dan selaku Pusat Jaringan Hukum di lingkungan Lembaga Sandi Negara adalah suatu sistem pendayagunaan bersama peraturan perundang-undangan di bidang persandian dan bahan dokumentasi lainnya secara tertib, terpadu dan berkesinambungan serta merupakan sarana pemberian pelayanan informasi hukum secara mudah, cepat dan akurat.Dasar hukum penyediaan informasi dan pembentukan Jaringan Dokumentasi dan Informasi Hukum (JDIH) Lembaga Sandi Negara yaitu :<ol><li>UU No. 11 Tahun 2008, tentang infomasi dan transaksi elektronik.</li><li>UU No. 14 Tahun 2009 tentang keterbukaan Infomasi Publik.</li><li>Perpres No. 33 Tahun 2012 Tentang Jaringan Dokumentasi dan informasi Hukum.</li><li>Perpres No. 1 Tahun 2007 tentang Pengesahan, Pengundangan dan Penyebarluasan Peraturan perundang-undangan.</li><li>Perka Lemsaneg No. 8 Tahun 2009 tentang Pelayanan Hukum.</li></ol><h3>Visi :</h3><div><div>Menjadi penyedia informasi peraturan perundang-undangan di bidang persandian yang lengkap, mudah, cepat dan akurat untuk mewujudkan masyarakat cerdas hukum</div></div>&nbsp;<h3>Misi :</h3><ul><li>Mengefektifkan JDIH Lembaga Sandi Negara sebagai pusat informasi dan dokumentasi hukum di bidang persandian;</li><li>Meningkatkan pelayanan akses informasi yang mudah, cepat dan akurat melalui website jdih yang berusaha terus dikembangkan dan di-update;</li><li>Meningkatkan program penyuluhan hukum serta JDI Hukum bidang persandian dalam rangka pengembangan budaya hukum dan kesadaran hukum.</li></ul>Dengan Visi dan Misi di atas, JDIH Lembaga Sandi Negara mempunyai motto yaitu :<div><div>LeMuCA</div></div>&nbsp;<span>Lengkap Mudah Cepat dan Akurat</span>', NULL, NULL, '2017-11-04 09:51:25', '0000-00-00', '1', ''),
 	(11, 'kontak_jdih', 'Kontak', 'Bagian Hukum dan Organisasi Biro Perencanaan dan Kepatuhan Internal<br><a href="https://maps.google.com/?q=Jl.+Kramat+Raya+No+57+Jakarta+Pusat+Jakarta+Pusat+10450&amp;entry=gmail&amp;source=g" target="" rel="" title="Link: https://maps.google.com/?q=Jl.+Kramat+Raya+No+57+Jakarta+Pusat+Jakarta+Pusat+10450&amp;entry=gmail&amp;source=g">Jl. Kramat Raya No 57 Jakarta Pusat</a>&nbsp;<a href="https://maps.google.com/?q=Jl.+Kramat+Raya+No+57+Jakarta+Pusat+Jakarta+Pusat+10450&amp;entry=gmail&amp;source=g" target="" rel="" title="Link: https://maps.google.com/?q=Jl.+Kramat+Raya+No+57+Jakarta+Pusat+Jakarta+Pusat+10450&amp;entry=gmail&amp;source=g">Jakarta Pusat 10450</a><br><span>Telp. (021) 3905876;&nbsp;</span>Fax. (021) 3906215; PO BOX 2685;<br>Email : humor[at]<a href="http://komisiyudisial.go.id/" target="_blank" rel="" title="Link: http://komisiyudisial.go.id/">komisiyudisial.go.id</a>', 0, NULL, '2017-11-04 17:50:54', '2017-11-04', '1', '1'),
 	(12, 'proleg_ky', 'Proleg KY', '<h2><strong>PROGRAM PENYUSUNAN PERATURAN KOMISI YUDISIAL&nbsp;</strong><strong>TAHUN 2017</strong></h2>\n\n<table border="1" cellpadding="0" cellspacing="0" class="table table-bordered">\n	<tbody>\n		<tr>\n			<td>\n			<p><strong>No.</strong></p>\n			</td>\n			<td>\n			<p><strong>Nama Rancangan Peraturan</strong></p>\n			</td>\n			<td>\n			<p><strong>Keterangan</strong></p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">1.</p>\n			</td>\n			<td>\n			<p>Undang-Undang tentang Jabatan Hakim</p>\n\n			<p>&nbsp;</p>\n			</td>\n			<td>\n			<p>Proses pembahasan di DPR,</p>\n\n			<p>KY advokasi</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">2.</p>\n			</td>\n			<td>\n			<p>Peraturan Pemerintah tentang Tunjangan Anggota Komisi Yudisial</p>\n			</td>\n			<td>\n			<p>Ditetapkan</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">3.</p>\n			</td>\n			<td>\n			<p>Perubahan peraturan tentang Kode Etik dan Pedoman Tingkah Laku Anggota Komisi Yudisial</p>\n			</td>\n			<td>\n			<p>Proses menuju Pleno penetapan oleh Komisioner</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">4.</p>\n			</td>\n			<td>\n			<p>Perubahan peraturan tentang Dewan Kehormatan Komisi Yudisial</p>\n			</td>\n			<td>\n			<p>Proses harmonisasi</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">5.</p>\n			</td>\n			<td>\n			<p>Perubahan peraturan tentang Susunan Organisasi dan Pembidangan Kerja KY</p>\n			</td>\n			<td>\n			<p>Proses harmonisasi</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">6.</p>\n			</td>\n			<td>\n			<p>Peraturan tentang Pemantauan</p>\n			</td>\n			<td>\n			<p>Proses harmonisasi</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">7.</p>\n			</td>\n			<td>\n			<p>Peraturan tentang Penanganan Informasi Dugaan Pelanggaran KEPPH</p>\n			</td>\n			<td>\n			<p>Proses harmonisasi</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">8.</p>\n			</td>\n			<td>\n			<p>Perubahan peraturan tentang Penghubung</p>\n			</td>\n			<td>\n			<p>Proses menuju Pleno penetapan oleh Komisioner</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">9.</p>\n			</td>\n			<td>\n			<p>Peraturan tentang Tata Kelola Teknologi Informasi dan Komunikasi</p>\n			</td>\n			<td>\n			<p>Proses menuju Pleno penetapan oleh Komisioner</p>\n			</td>\n		</tr>\n		<tr>\n			<td>\n			<p style="text-align:right">10.</p>\n			</td>\n			<td>\n			<p>Perubahan peraturan tentang Susunan Organisasi dan Pembidangan Kerja KY</p>\n			</td>\n			<td>\n			<p>Proses harmonisasi</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n', 0, NULL, '2017-11-12 21:06:16', '2017-11-12', '1', '1'),
@@ -281,13 +286,8 @@ CREATE TABLE IF NOT EXISTS `permohonan` (
   CONSTRAINT `FK_permohonan_produk_hukum_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `produk_hukum_kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.permohonan: ~4 rows (approximately)
+-- Dumping data for table db_jdih.permohonan: ~0 rows (approximately)
 /*!40000 ALTER TABLE `permohonan` DISABLE KEYS */;
-INSERT INTO `permohonan` (`id_permohonan`, `user_id`, `id_kategori`, `id_permohonan_status`, `no_permohonan`, `tanggal`, `pengusul`, `judul`, `no_nota_dinas`, `tanggal_nota_dinas`, `id_dok_notadinas`, `id_dok_position_paper`, `id_dok_draft_rancangan`, `id_dok_tahap_pembahasan`, `notes`, `permohonan_status_notes`, `dateupdate`, `userupdate`) VALUES
-	(3, 1, 10, 5, 'KY/P/2017111608084124', '2017-11-18 20:07:00', 'Administrator', 'Peraturan tata cara berpakaian', 'ND/123', '2017-11-21', 35, 36, 37, 38, '<p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget ex enim. Nulla bibendum nibh in rhoncus porttitor. Integer volutpat eros nec magna suscipit pulvinar. Duis eu lectus pharetra, sollicitudin urna et, mattis dui. Quisque a interdum lorem. Pellentesque ac iaculis erat. Integer molestie magna non magna dignissim sodales. Vivamus non tincidunt est, nec rutrum nulla. Morbi ut convallis mi, nec porta ligula. Maecenas tristique nunc et elit maximus, at dapibus felis venenatis. Cras venenatis tempus eleifend. Cras eu odio convallis, pharetra sapien sed, pretium tellus. Donec interdum, nisi nec pulvinar egestas, leo dolor eleifend nisl, in molestie lacus arcu sed nisl.</p>\n\n<p style="text-align:justify">Nullam id dictum nulla. Nullam consequat volutpat eleifend. Duis non dignissim nulla, ultricies condimentum lectus. Proin luctus lacinia magna, ut dignissim ante pretium sit amet. Proin vitae scelerisque magna. Praesent faucibus aliquam mauris, eu euismod tortor accumsan id. Phasellus sem magna, elementum vitae lectus ut, dictum pellentesque purus. Duis posuere nunc sit amet tellus gravida pharetra. Etiam sem mi, tempus id pellentesque eu, facilisis vel quam.</p>\n', '', '2017-11-18', '1'),
-	(4, 3, 10, 4, 'KY/P/2017111902023814', '2017-11-19 22:04:12', 'Biro Pengawasan Hakim', 'Aturan Pengangkatan Hakim', 'ND.1234.1234', '2017-11-16', 39, 40, 41, 42, '<p>Kami akan melakukan review untuk permintaan anda.</p>\n\n<p>Mohon tunggu 3x 24 jam.</p>\n', '', '2017-11-19', '1'),
-	(5, 1, 10, 5, 'KY/P/2017112512124333', '2017-11-25 09:20:38', 'Administrator', 'xxxx', 'xxxxx', '2017-11-07', 43, 44, 45, 46, '<p>ok sudah terealisasi</p>\n', '', '2017-11-25', '1'),
-	(6, 4, 10, 1, 'KY/P/2017112502024941', '2017-11-25 09:50:35', 'Biro Umum', 'xxxx', 'xxx', '2017-11-14', 50, 51, 52, 53, 'tolong di review', '', NULL, NULL);
 /*!40000 ALTER TABLE `permohonan` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.permohonan_status
@@ -328,26 +328,8 @@ CREATE TABLE IF NOT EXISTS `permohonan_status_h` (
   CONSTRAINT `FK_permohonan_status_h_sys_attach` FOREIGN KEY (`id_berkas`) REFERENCES `sys_attach` (`attachid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.permohonan_status_h: ~17 rows (approximately)
+-- Dumping data for table db_jdih.permohonan_status_h: ~0 rows (approximately)
 /*!40000 ALTER TABLE `permohonan_status_h` DISABLE KEYS */;
-INSERT INTO `permohonan_status_h` (`recid`, `id_permohonan`, `id_permohonan_status`, `id_berkas`, `notes`, `dateinput`, `userinput`) VALUES
-	(3, 3, 1, NULL, 'Mohon dibantu', '2017-11-25 08:25:32', ''),
-	(4, 3, 4, NULL, '<p>Akan kami review</p>\n', '2017-11-25 08:25:33', ''),
-	(5, 3, 2, NULL, '<p>akan kami bahas dengan tim lain</p>\n', '2017-11-25 08:25:33', ''),
-	(6, 3, 3, NULL, '<p>sedang dalam proses persetujuan tim&nbsp;</p>\n', '2017-11-25 08:25:34', ''),
-	(7, 3, 5, NULL, '<p>Permintaan anda telah kami Publish</p>\n', '2017-11-25 08:25:35', ''),
-	(8, 3, 5, NULL, '<p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget ex enim. Nulla bibendum nibh in rhoncus porttitor. Integer volutpat eros nec magna suscipit pulvinar. Duis eu lectus pharetra, sollicitudin urna et, mattis dui. Quisque a interdum lorem. Pellentesque ac iaculis erat. Integer molestie magna non magna dignissim sodales. Vivamus non tincidunt est, nec rutrum nulla. Morbi ut convallis mi, nec porta ligula. Maecenas tristique nunc et elit maximus, at dapibus felis venenatis. Cras venenatis tempus eleifend. Cras eu odio convallis, pharetra sapien sed, pretium tellus. Donec interdum, nisi nec pulvinar egestas, leo dolor eleifend nisl, in molestie lacus arcu sed nisl.</p>\n\n<p style="text-align:justify">Nullam id dictum nulla. Nullam consequat volutpat eleifend. Duis non dignissim nulla, ultricies condimentum lectus. Proin luctus lacinia magna, ut dignissim ante pretium sit amet. Proin vitae scelerisque magna. Praesent faucibus aliquam mauris, eu euismod tortor accumsan id. Phasellus sem magna, elementum vitae lectus ut, dictum pellentesque purus. Duis posuere nunc sit amet tellus gravida pharetra. Etiam sem mi, tempus id pellentesque eu, facilisis vel quam.</p>\n', '2017-11-25 08:25:35', ''),
-	(9, 4, 1, NULL, 'Mohon dibantu pembuatan Dokumennya', '2017-11-25 08:25:36', ''),
-	(10, 4, 4, NULL, '<p>Kami akan melakukan review untuk permintaan anda.</p>\n\n<p>Mohon tunggu 3x 24 jam.</p>\n', '2017-11-25 08:25:36', ''),
-	(11, 5, 1, NULL, '', '2017-11-25 08:25:37', ''),
-	(12, 5, 4, 43, '<p>terlampir keterangan</p>\n', '2017-11-25 08:47:10', ''),
-	(13, 5, 2, NULL, '<p>xxxxxxxxxxxxxxxxx</p>\n', '2017-11-25 08:50:29', ''),
-	(14, 5, 3, NULL, '<p>xxxxxxxxx</p>\n', '2017-11-25 08:52:36', ''),
-	(15, 5, 3, NULL, '<p>xxxxxxx</p>\n', '2017-11-25 08:53:53', ''),
-	(16, 5, 3, 47, '<p>asdasdasd</p>\n', '2017-11-25 08:58:16', ''),
-	(17, 5, 3, 48, '<p>asdsadasda</p>\n', '2017-11-25 09:05:20', ''),
-	(18, 5, 5, 49, '<p>ok sudah terealisasi</p>\n', '2017-11-25 09:20:38', ''),
-	(19, 6, 1, NULL, 'tolong di review', '2017-11-25 09:50:35', '');
 /*!40000 ALTER TABLE `permohonan_status_h` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.produk_hukum
@@ -367,10 +349,12 @@ CREATE TABLE IF NOT EXISTS `produk_hukum` (
   `userinput` varchar(50) NOT NULL,
   `dateupdate` date NOT NULL,
   `userupdate` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_produk_hukum`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id_produk_hukum`),
+  KEY `FK_produk_hukum_produk_hukum_kategori` (`id_kategori`),
+  CONSTRAINT `FK_produk_hukum_produk_hukum_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `produk_hukum_kategori` (`id_kategori`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.produk_hukum: ~8 rows (approximately)
+-- Dumping data for table db_jdih.produk_hukum: ~13 rows (approximately)
 /*!40000 ALTER TABLE `produk_hukum` DISABLE KEYS */;
 INSERT INTO `produk_hukum` (`id_produk_hukum`, `id_kategori`, `tanggal`, `produk_hukum`, `judul`, `subjudul`, `abstrak`, `isi`, `catatan`, `id_dokumen`, `dateinput`, `userinput`, `dateupdate`, `userupdate`) VALUES
 	(4, 3, '2017-11-01', 'UUD 1945', 'UUD 1945', 'UUD 1945', '', '<div><h3>PEMBUKAAN<br>(Preambule)</h3></div>Bahwa sesungguhnya kemerdekaan itu ialah hak segala bangsa dan oleh sebab itu, maka penjajahan di atas dunia harus dihapuskan, karena tidak sesuai dengan perikemanusiaan dan perikeadilan.Dan perjuangan pergerakan kemerdekaan Indonesia telah sampailah kepada saat yang berbahagia dengan selamat sentausa mengantarkan rakyat Indonesia ke depan pintu gerbang kemerdekaan Negara Indonesia yang merdeka, bersatu, berdaulat, adil dan makmur.Atas berkat rakhmat Allah Yang Maha Kuasa dan dengan didorongkan oleh keinginan luhur, supaya berkehidupan kebangsaan yang bebas, maka rakyat Indonesia menyatakan dengan ini kemerdekaannya.Kemudian dari pada itu untuk membentuk suatu Pemerintah Negara Indonesia yang melindungi segenap bangsa Indonesia dan seluruh tumpah darah Indonesia dan untuk memajukan kesejahteraan umum, mencerdaskan kehidupan bangsa dan ikut melaksanakan ketertiban dunia yang berdasarkan kemerdekaan, perdamaian abadi dan keadilan sosial, maka disusunlah Kemerdekaan Kebagsaan Indonesia itu dalam suatu Undang-Undang Dasar Negara Indonesia, yang terbentuk dalam suatu susunan Negara Republik Indonesia, yang berkedaulatan rakyat dengan berdasar kepada : Ketuhanan Yang Maha Esa, Kemanusiaan yang adil dan beradab, Persatuan Indonesia dan Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan, serta dengan mewujudkan suatu Keadilan sosial bagi seluruh rakyat Indonesia.', '', 4, '2017-11-01 12:39:36', '1', '2017-11-01', '1'),
@@ -381,7 +365,11 @@ INSERT INTO `produk_hukum` (`id_produk_hukum`, `id_kategori`, `tanggal`, `produk
 	(9, 4, '2017-11-01', 'UU Nomor 20 Tahun 2001 tentang Pemberantasan Tindak Pidana Korupsi', 'Pemberantasan Tindak Pidana Korupsi UU Nomor 20 Tahun 2001 2001', 'PERUBAHAN ATAS UNDANG-UNDANG NOMOR 31 TAHUN 1999 TENTANG PEMBERANTASAN TINDAK PIDANA KORUPSI', '<span>Bahwa tindak pidana korupsi yang selama ini terjadi, tidak hanya merugikan keuangan negara, tetapi juga merupakan pelanggaran terhadap hak-hak sosial dan ekonomi masyarakat secara luas, sehingga tindak pidana korupsi perlu digolongkan sebagai kejahatan yang pemberantasannya harus dilakukan secara luar biasa. Selain itu, untuk lebih menjamin kepastian hukum, menghindari keragaman penafsiran hukum dan memberikan perlindungan terhadap hak-hak sosial dan ekonomi masyarakat, serta perlakuan secara adil dalam memberantas tindak pidana korupsi, perlu diadakan perubahan atas Undang-undang Nomor 31 Tahun 1999 tentang Pemberantasan Tindak Pidana Korupsi.</span>', 'Dasar Hukum :<ol><li>Pasal 5 ayat (1) dan Pasal 20 ayat (2) dan ayat (4) Undang-Undang Dasar 1945;</li><li>Undang-Undang Nomor 8 Tahun 1981 tentang Hukum Acara Pidana;</li><li>Undang-Undang Nomor 28 Tahun 1999 tentang Penyelenggaraan Negara yang Bebas dari Korupsi, Kolusi, dan Nepotisme;</li><li>Undang-Undang Nomor 31 Tahun 1999 tentang Pemberantasan Tindak Pidana Korupsi.</li></ol>UU ini mengatur tentang :Beberapa ketentuan dan penjelasan pasal dalam Undang-undang Nomor 31 Tahun 1999 tentang Pemberantasan Tindak Pidana Korupsi diubah sebagai berikut:<ol><li>Pasal 2 ayat (2) substansi tetap, penjelasan pasal diubah sehingga rumusannya sebagaimana tercantum dalam penjelasan Pasal Demi Pasal angka 1 Undang-undang ini;</li><li>Ketentuan Pasal 5, Pasal 6, Pasal 7, Pasal 8, Pasal 9, Pasal 10, Pasal 11, dan Pasal 12, rumusannya diubah dengan tidak mengacu pasal-pasal dalam Kitab Undang-undang Hukum Pidana tetapi langsung menyebutkan unsur-unsur yang terdapat dalam masing-masing pasal Kitab Undang- undang Hukum Pidana yang diacu;</li><li>Di antara Pasal 12 dan Pasal 13 disisipkan 3 (tiga) pasal baru yakni Pasal 12 A, Pasal 12 B, dan Pasal 12 C;</li><li>Di antara Pasal 26 dan Pasal 27 disisipkan 1 (satu) pasal baru menjadi Pasal 26 A;</li><li>Pasal 37 dipecah menjadi 2 (dua) pasal yakni menjadi Pasal 37 dan Pasal 37 A;</li><li>Di antara Pasal 38 dan Pasal 39 ditambahkan 3 (tiga) pasal baru yakni Pasal 38 A, Pasal 38 B, dan Pasal 38 C;</li><li>Di antara Bab VI dan Bab VII ditambah bab baru yakni Bab VI A mengenai Ketentuan Peralihan yang berisi 1 (satu) pasal, yakni Pasal 43 A yang diletakkan di antara Pasal 43 dan Pasal 44;</li><li>Dalam BAB VII sebelum Pasal 44 ditambah 1 (satu) pasal baru yakni Pasal 43 B.</li></ol>', '– Mulai berlaku pada tanggal diundangkan;<br>– Mengubah UU Nomor 31 Tahun 1999;<br>– Diundangkan pada tanggal 21 November 2001;<br><span>– Diundangkan pada tanggal 21 November 2001.</span>', 8, '2017-11-03 20:05:28', '1', '0000-00-00', ''),
 	(10, 4, '2015-11-01', 'UU Nomor 10 Tahun 2015', 'Komisi Pemberantasan Tindak Pidana Korupsi UU No. 10 Tahun 2015 2015', 'PENETAPAN PERATURAN PEMERINTAH PENGGANTI UNDANG-UNDANG NOMOR 1 TAHUN 2015 TENTANG PERUBAHAN ATAS UNDANG-UNDANG NOMOR 30 TAHUN 2002 TENTANG KOMISI PEMBERANTASAN TINDAK PIDANA KORUPSI MENJADI UNDANG-UNDANG', 'bahwa terjadinya kekosongan keanggotaan pimpinan komisi pemberantasan korupsi telah mengganggu kinerja komisi pemberantasan korupsi dan untuk menjaga kesinambungan upaya pencegahan dan pemberantasan tindak pidana korupsi perlu pengaturan mengenai pengisian keanggotaan sementara pimpinan komisi pemberantasan korupsi. Dan ketentuan mengenai pengisian keanggotaan sementara pimpinan komisi pemberantasan korupsi belum diatur dalam Undang-Undang No. 30 Tahun 2002 tentang Komisi Pemberantasan Tindak Pidana Korupsi.<div><span><br></span></div>', 'Dasar Hukum :<ol><li>Pasal 5 ayat (1), Pasal 20, Pasal 22 ayat (2) UUD Negara Republik Indonesia Tahun 1945;</li><li>UU No. 30 Tahun 2002.</li></ol>UU ini mengatur tentang :<br><span>PP Pengganti UU No. 1 Tahun 2015 tentang perubahan atas Undang-Undang No. 30 Tahun 2002 ditetapkan menjadi UU, dan melampirkannya sebagai bagian yang tidak terpisahkan dari UU ini.</span><br>', '– Mulai berlaku pada tanggal diundangkan;<br>– Ditetapkan pada tanggal 20 Mei 2015;<br><span>– Diundangkan pada tanggal 25 Mei 2015.</span>', 9, '2017-11-03 20:06:58', '1', '0000-00-00', ''),
 	(11, 4, '2015-11-01', 'UU Nomor 9 Tahun 2015 tentang Pemerintahan Daerah', 'Pemerintahan Daerah UU No. 9 Tahun 2015 2015', 'PERUBAHAN KEDUA ATAS UNDANG-UNDANG NOMOR 23 TAHUN 2014 TENTANG PEMERINTAHAN DAERAH', '<span>Bahwa untuk kesinambungan kepemimpinan di provinsi, kabupaten/kota diperlukan mekanisme peralihan kepemimpinan daerah di masa jabatannya yang demokratis untuk dapat menjamin pembangunan dan pelayanan kepada masyarakat. Ketentuan tugas dan wewenang dewan perwakilan rakyat daerah provinsi, kabupaten/kota perlu dilakukan penyesuaian dengan undang-undang yang mengatur pemilihan gubernur, bupati, dan walikota.</span>', 'Dasar Hukum :<ol><li>Pasal 18, Pasal 20, Pasal 21, Pasal 22D Undang-Undang Dasar Negara Republik Indonesia Tahun 1945;</li><li>UU Nomor 23 Tahun 2014 tentang Pemerintahan Daerah sebagaimana telah diubah dengan Undang-Undang Nomor 2 Tahun 2015</li></ol>UU ini mengatur tentang:<br><span>Beberapa ketentuan dalam Undang-Undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah (Lembaran Negara Republik Indonesia Tahun 2014 Nomor 244, Tambahan Lembaran Negara Republik Indonesia Nomor 5587) sebagaimana telah diubah dengan Undang-Undang Nomor 2 Tahun 2015 tentang Penetapan Peraturan Pemerintah Pengganti Undang-Undang Nomor 2 Tahun 2014 tentang Perubahan atas Undang-Undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah Menjadi Undang-Undang (Lembaran Negara Republik Indonesia Tahun 2015 Nomor 24, Tambahan Lembaran Negara Republik Indonesia Nomor 5657), diubah.</span>', '– &nbsp;Mulai berlaku pada tanggal diundangkan;<br>– &nbsp;Ditetapkan pada tanggal 18 Maret 2015;<br><span>– &nbsp;Diundangkan pada tanggal 18 Maret 2015</span>', 0, '2017-11-03 20:08:28', '1', '0000-00-00', ''),
-	(12, 4, '2014-11-01', 'UU Nomor 30 Tahun 2014 tentang Administrasi Pemerintahan', 'Administrasi Pemerintahan UU No. 30 Tahun 2014 2014', 'ADMINISTRASI PEMERINTAHAN', '<span>Bahwa perlu dibentuk UU tentang Pembentukan Peraturan Perundang-Undangan dalam rangka mewujudkan Indonesia sebagai negara hukum, yang menjamin perlindungan hak dan kewajiban segenap rakyat Indonesia berdasarkan UUD Negara Republik Indonesia Tahun 1945. Selain itu, untuk memenuhi kebutuhan masyarakat atas peraturan perundang-undangan yang baik, yang dilaksanakan dengan cara dan metode yang pasti, baku, dan standar yang mengikat semua lembaga yang berwenang membentuk perundang-undangan, mengingat dalam UU Nomor 10 Tahun 2004 tentang Pembentukan Peraturan Perundang-Undangan masih terdapat kekurangan dan belum dapat menampung perkembangan kebutuhan masyarakat mengenai aturan pembentukan peraturan perundang-undangan yang baik.</span>', 'Dasar Hukum :<br><span>Pasal 20, Pasal 21, dan Pasal 22A UUD Negara Republik Indonesia Tahun 1945;<br><br></span>UU ini mengatur tentang:<ol><li>Ketentuan Umum;</li><li>Maksud dan Tujuan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : MaksudBagian Kedua&nbsp;&nbsp; &nbsp; : Tujuan<ol><li>Ruang Lingkup dan Asas, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : Ruang LingkupBagian Kedua&nbsp;&nbsp; &nbsp; : Asas<ol><li>Hak dan Kewajiban Pejabat Pemerintahan;</li><li>Kewenangan Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : Peraturan Perundang-undanganBagian Ketiga&nbsp;&nbsp; &nbsp; : Asas-Asas Umum Pemerintahan yang BaikBagian Keempat : Atribusi, Delegasi, dan MandatParagraf 1 : UmumParagraf 2 : AtribusiParagraf 3 : DelegasiParagraf 4 : MandatBagian Kelima&nbsp; : Pembatasan KewenanganBagian Keenam : Sengketa KewenanganBagian Ketujuh&nbsp; : Larangan Penyalahgunaan Wewenang<ol><li>Diskresi, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : Lingkup DiskresiBagian Ketiga&nbsp;&nbsp; &nbsp; : Persyaratan DiskresiBagian Keempat : Prosedur Penggunaan DiskresiBagian Kelima&nbsp; &nbsp; : Akibat Hukum Diskresi<ol><li>Penyelenggaraan Administrasi Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : Badan dan/atau Pejabat PemerintahanBagian Ketiga&nbsp;&nbsp; &nbsp; : Bantuan KedinasanBagian Keempat : Keputusan Berbentuk ElektronisBagian Kelima&nbsp; &nbsp; : Izin, Dispensasi, dan Konsesi<ol><li>Prosedur Administrasi Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : Para PihakBagian Kedua&nbsp;&nbsp; &nbsp; : Pemberian KuasaBagian Ketiga&nbsp;&nbsp; &nbsp; : Konflik KepentinganBagian Keempat : Sosialisasi bagi Pihak yang BerkepentinganBagian Kelima&nbsp; &nbsp; : Standar Operasional ProsedurBagian Keenam&nbsp; : Pemeriksaan Dokumen Administrasi PemerintahanBagian Ketujuh&nbsp;&nbsp; : Penyebarluasan Dokumen AdministrasiPemerintahan<ol><li>Keputusan Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : Syarat Sahnya KeputusanBagian Kedua&nbsp;&nbsp; &nbsp; : Berlaku dan Mengikatnya KeputusanParagraf 1 : Berlakunya KeputusanParagraf 2 : Mengikatnya KeputusanBagian Ketiga&nbsp;&nbsp; &nbsp; : Penyampaian KeputusanBagian Keempat : Perubahan, Pencabutan, Penundaan, danPembatalan KeputusanParagraf 1 : PerubahanParagraf 2 : PencabutanParagraf 3 : PenundaanParagraf 4 : PembatalanBagian Kelima&nbsp; &nbsp; : Akibat Hukum Keputusan dan/atau TindakanParagraf 1 : Akibat Hukum Keputusan dan/atauTindakan yang Tidak SahParagraf 2 : Akibat Hukum Keputusan dan/atauTindakan yang Dapat DibatalkanBagian Keenam&nbsp; : Legalisasi Dokumen<ol><li>Upaya Administrasi, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : KeberatanBagian Ketiga&nbsp;&nbsp; &nbsp; : Banding<ol><li>Pembinaan dan Pengembangan Administrasi Pemerintahan;</li><li>Sanksi Administratif;</li><li>Ketentuan Peralihan;</li><li>Ketentuan Penutup</li></ol>', '–&nbsp; Mulai berlaku pada tanggal diundangkan;<br>– &nbsp;Ditetapkan pada tanggal 17 Oktober 2014;<br><span>– &nbsp;Diundangkan pada tanggal 17 Oktober 2014.</span>', 0, '2017-11-03 20:09:27', '1', '0000-00-00', '');
+	(12, 4, '2014-11-01', 'UU Nomor 30 Tahun 2014 tentang Administrasi Pemerintahan', 'Administrasi Pemerintahan UU No. 30 Tahun 2014 2014', 'ADMINISTRASI PEMERINTAHAN', '<span>Bahwa perlu dibentuk UU tentang Pembentukan Peraturan Perundang-Undangan dalam rangka mewujudkan Indonesia sebagai negara hukum, yang menjamin perlindungan hak dan kewajiban segenap rakyat Indonesia berdasarkan UUD Negara Republik Indonesia Tahun 1945. Selain itu, untuk memenuhi kebutuhan masyarakat atas peraturan perundang-undangan yang baik, yang dilaksanakan dengan cara dan metode yang pasti, baku, dan standar yang mengikat semua lembaga yang berwenang membentuk perundang-undangan, mengingat dalam UU Nomor 10 Tahun 2004 tentang Pembentukan Peraturan Perundang-Undangan masih terdapat kekurangan dan belum dapat menampung perkembangan kebutuhan masyarakat mengenai aturan pembentukan peraturan perundang-undangan yang baik.</span>', 'Dasar Hukum :<br><span>Pasal 20, Pasal 21, dan Pasal 22A UUD Negara Republik Indonesia Tahun 1945;<br><br></span>UU ini mengatur tentang:<ol><li>Ketentuan Umum;</li><li>Maksud dan Tujuan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : MaksudBagian Kedua&nbsp;&nbsp; &nbsp; : Tujuan<ol><li>Ruang Lingkup dan Asas, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : Ruang LingkupBagian Kedua&nbsp;&nbsp; &nbsp; : Asas<ol><li>Hak dan Kewajiban Pejabat Pemerintahan;</li><li>Kewenangan Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : Peraturan Perundang-undanganBagian Ketiga&nbsp;&nbsp; &nbsp; : Asas-Asas Umum Pemerintahan yang BaikBagian Keempat : Atribusi, Delegasi, dan MandatParagraf 1 : UmumParagraf 2 : AtribusiParagraf 3 : DelegasiParagraf 4 : MandatBagian Kelima&nbsp; : Pembatasan KewenanganBagian Keenam : Sengketa KewenanganBagian Ketujuh&nbsp; : Larangan Penyalahgunaan Wewenang<ol><li>Diskresi, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : Lingkup DiskresiBagian Ketiga&nbsp;&nbsp; &nbsp; : Persyaratan DiskresiBagian Keempat : Prosedur Penggunaan DiskresiBagian Kelima&nbsp; &nbsp; : Akibat Hukum Diskresi<ol><li>Penyelenggaraan Administrasi Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : Badan dan/atau Pejabat PemerintahanBagian Ketiga&nbsp;&nbsp; &nbsp; : Bantuan KedinasanBagian Keempat : Keputusan Berbentuk ElektronisBagian Kelima&nbsp; &nbsp; : Izin, Dispensasi, dan Konsesi<ol><li>Prosedur Administrasi Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : Para PihakBagian Kedua&nbsp;&nbsp; &nbsp; : Pemberian KuasaBagian Ketiga&nbsp;&nbsp; &nbsp; : Konflik KepentinganBagian Keempat : Sosialisasi bagi Pihak yang BerkepentinganBagian Kelima&nbsp; &nbsp; : Standar Operasional ProsedurBagian Keenam&nbsp; : Pemeriksaan Dokumen Administrasi PemerintahanBagian Ketujuh&nbsp;&nbsp; : Penyebarluasan Dokumen AdministrasiPemerintahan<ol><li>Keputusan Pemerintahan, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : Syarat Sahnya KeputusanBagian Kedua&nbsp;&nbsp; &nbsp; : Berlaku dan Mengikatnya KeputusanParagraf 1 : Berlakunya KeputusanParagraf 2 : Mengikatnya KeputusanBagian Ketiga&nbsp;&nbsp; &nbsp; : Penyampaian KeputusanBagian Keempat : Perubahan, Pencabutan, Penundaan, danPembatalan KeputusanParagraf 1 : PerubahanParagraf 2 : PencabutanParagraf 3 : PenundaanParagraf 4 : PembatalanBagian Kelima&nbsp; &nbsp; : Akibat Hukum Keputusan dan/atau TindakanParagraf 1 : Akibat Hukum Keputusan dan/atauTindakan yang Tidak SahParagraf 2 : Akibat Hukum Keputusan dan/atauTindakan yang Dapat DibatalkanBagian Keenam&nbsp; : Legalisasi Dokumen<ol><li>Upaya Administrasi, terdiri dari:</li></ol>Bagian Kesatu&nbsp; &nbsp; : UmumBagian Kedua&nbsp;&nbsp; &nbsp; : KeberatanBagian Ketiga&nbsp;&nbsp; &nbsp; : Banding<ol><li>Pembinaan dan Pengembangan Administrasi Pemerintahan;</li><li>Sanksi Administratif;</li><li>Ketentuan Peralihan;</li><li>Ketentuan Penutup</li></ol>', '–&nbsp; Mulai berlaku pada tanggal diundangkan;<br>– &nbsp;Ditetapkan pada tanggal 17 Oktober 2014;<br><span>– &nbsp;Diundangkan pada tanggal 17 Oktober 2014.</span>', 0, '2017-11-03 20:09:27', '1', '0000-00-00', ''),
+	(13, 8, '2016-01-01', 'Peraturan Komisi Yudisial No 3 Tahun 2016', 'Peraturan Komisi Yudisial No 3 Tahun 2016 tentang Seleksi Calon Hakim Ad Hoc Tipikor di MA', '', '', 'Peraturan Komisi Yudisial No 3 Tahun 2016 tentang Seleksi Calon Hakim Ad Hoc Tipikor di MA', '', 54, '2017-12-03 16:10:15', '1', '0000-00-00', ''),
+	(14, 6, '2012-01-01', 'Peraturan Pemerintah Republik Indonesia Nomor 94 Tahun 2012', 'Peraturan Pemerintah Republik Indonesia Nomor 94 Tahun 2012 Tentang Hak Keuangan dan Fasilitas Hakim', '', '', 'Peraturan Pemerintah Republik Indonesia Nomor 94 Tahun 2012 Tentang Hak Keuangan dan Fasilitas Hakim', '', 55, '2017-12-03 16:14:34', '1', '0000-00-00', ''),
+	(15, 7, '2017-01-01', ' Peraturan Bersama MA RI dan KY RI Tentang Majelis Kehormatan Hakim', ' Peraturan Bersama MA RI dan KY RI Tentang Majelis Kehormatan Hakim', '', '', '&nbsp;Peraturan Bersama MA RI dan KY RI Tentang Majelis Kehormatan Hakim', '', 56, '2017-12-03 16:16:11', '1', '0000-00-00', ''),
+	(16, 9, '2017-01-01', 'Peraturan Sekjen Nomor 6 Tahun 2014', 'Peraturan Sekjen Nomor 6 Tahun 2014 tentang Penanganan Pengaduan Whistleblower Pengadaan Barang dan jasa', '', '', 'Peraturan Sekjen Nomor 6 Tahun 2014 tentang Penanganan Pengaduan Whistleblower Pengadaan Barang dan jasa', '', 57, '2017-12-03 16:57:21', '1', '0000-00-00', '');
 /*!40000 ALTER TABLE `produk_hukum` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.produk_hukum_kategori
@@ -400,23 +388,21 @@ CREATE TABLE IF NOT EXISTS `produk_hukum_kategori` (
   PRIMARY KEY (`id_kategori`),
   KEY `FK_produk_hukum_kategori_produk_hukum_kategori_group` (`id_group`),
   CONSTRAINT `FK_produk_hukum_kategori_produk_hukum_kategori_group` FOREIGN KEY (`id_group`) REFERENCES `produk_hukum_kategori_group` (`id_group`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.produk_hukum_kategori: ~15 rows (approximately)
+-- Dumping data for table db_jdih.produk_hukum_kategori: ~13 rows (approximately)
 /*!40000 ALTER TABLE `produk_hukum_kategori` DISABLE KEYS */;
 INSERT INTO `produk_hukum_kategori` (`id_kategori`, `id_group`, `kategori`, `no_urut`, `deskripsi`, `is_permohonan`, `dateinput`, `userinput`, `dateupdate`, `userupdate`) VALUES
 	(3, NULL, 'Undang-Undang Dasar Negara Republik Indonesia Tahun 1945', 1, 'Undang-Undang Dasar Negara Republik Indonesia Tahun 1945', 'N', '2017-11-03 07:32:51', '1', '0000-00-00', ''),
 	(4, NULL, 'Undang-Undang/Peraturan Pemerintah Pengganti Undang-Undang (Perppu)', 2, 'Undang-Undang/Peraturan Pemerintah Pengganti Undang-Undang (Perppu)', 'N', '2017-11-03 07:32:54', '1', '0000-00-00', ''),
 	(5, NULL, 'Peraturan Pemerintah', 3, 'Peraturan Pemerintah', 'N', '2017-11-03 07:32:56', '1', '0000-00-00', ''),
-	(6, NULL, 'Peraturan Presiden', 4, '', 'N', '2017-11-03 07:32:58', '1', '0000-00-00', ''),
+	(6, NULL, 'Peraturan Presiden', 0, '', 'N', '2017-12-03 16:52:18', '1', NULL, NULL),
 	(7, NULL, 'Peraturan Bersama Antara Mahkamah Agung dengan Komisi Yudisial', 5, '', 'N', '2017-11-03 07:32:59', '1', '0000-00-00', ''),
 	(8, NULL, 'Peraturan Komisi Yudisial', 6, '', 'N', '2017-11-03 07:33:01', '1', '0000-00-00', ''),
 	(9, NULL, 'Peraturan Sekretaris Jenderal Komisi Yudisial', 7, '', 'N', '2017-11-03 07:33:02', '1', '0000-00-00', ''),
-	(10, 1, 'Peraturan Komisi Yudisial', 8, NULL, 'Y', '2017-11-04 20:22:15', '1', '2017-11-04', '1'),
 	(11, 2, 'Instruksi Ketua Komisi Yudisial', 9, NULL, 'Y', '2017-11-04 20:22:20', '1', NULL, NULL),
 	(12, 3, 'Keputusan Ketua Komisi Yudisial', 10, NULL, 'Y', '2017-11-04 20:22:25', '1', NULL, NULL),
 	(13, 4, 'Surat Edaran Ketua Komisi Yudisial', 11, NULL, 'Y', '2017-11-04 20:22:28', '1', NULL, NULL),
-	(14, 1, 'Peraturan Sekretaris Jenderal Komisi Yudisial', 12, NULL, 'Y', '2017-11-04 20:22:31', '1', NULL, NULL),
 	(15, 2, 'Intstruksi Sekretaris Jenderal Komisi Yudisial', 13, NULL, 'Y', '2017-11-04 20:22:33', '1', NULL, NULL),
 	(16, 3, 'Keptusan Sekretaris Jenderal Komisi Yudisial', 14, NULL, 'Y', '2017-11-04 20:22:36', '1', '2017-11-04', NULL),
 	(17, 4, 'Surat Edaran Sekretaris Jenderal Komisi Yudisial', 15, NULL, 'Y', '2017-11-04 20:22:40', '1', NULL, NULL);
@@ -463,16 +449,32 @@ INSERT INTO `produk_hukum_komentar` (`id_komentar`, `id_produk_hukum`, `nama`, `
 	(8, 4, 'selametsubu', 'selametsubu@gmail.com', 'Apakah UUD yg sekarang sudah mengalami revisi ?', '2017-11-03 14:22:45', 'Y');
 /*!40000 ALTER TABLE `produk_hukum_komentar` ENABLE KEYS */;
 
+-- Dumping structure for table db_jdih.slideshow
+DROP TABLE IF EXISTS `slideshow`;
+CREATE TABLE IF NOT EXISTS `slideshow` (
+  `id_slideshow` int(11) NOT NULL AUTO_INCREMENT,
+  `judul` varchar(255) NOT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_slideshow`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table db_jdih.slideshow: ~2 rows (approximately)
+/*!40000 ALTER TABLE `slideshow` DISABLE KEYS */;
+INSERT INTO `slideshow` (`id_slideshow`, `judul`, `gambar`) VALUES
+	(6, 'Slider 1', 'slide3.jpg'),
+	(7, 'Slider 2', 'slide2.jpg');
+/*!40000 ALTER TABLE `slideshow` ENABLE KEYS */;
+
 -- Dumping structure for table db_jdih.sys_attach
 DROP TABLE IF EXISTS `sys_attach`;
 CREATE TABLE IF NOT EXISTS `sys_attach` (
   `attachid` bigint(20) NOT NULL AUTO_INCREMENT,
-  `dateinput` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateinput` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userinput` varchar(50) NOT NULL,
   PRIMARY KEY (`attachid`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.sys_attach: ~27 rows (approximately)
+-- Dumping data for table db_jdih.sys_attach: ~34 rows (approximately)
 /*!40000 ALTER TABLE `sys_attach` DISABLE KEYS */;
 INSERT INTO `sys_attach` (`attachid`, `dateinput`, `userinput`) VALUES
 	(4, '2017-10-31 22:09:08', '1'),
@@ -504,7 +506,11 @@ INSERT INTO `sys_attach` (`attachid`, `dateinput`, `userinput`) VALUES
 	(50, '2017-11-25 09:50:35', '4'),
 	(51, '2017-11-25 09:50:35', '4'),
 	(52, '2017-11-25 09:50:35', '4'),
-	(53, '2017-11-25 09:50:35', '4');
+	(53, '2017-11-25 09:50:35', '4'),
+	(54, '2017-12-03 16:10:15', '1'),
+	(55, '2017-12-03 16:14:34', '1'),
+	(56, '2017-12-03 16:16:11', '1'),
+	(57, '2017-12-03 16:57:21', '1');
 /*!40000 ALTER TABLE `sys_attach` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.sys_attach_dtl
@@ -522,9 +528,9 @@ CREATE TABLE IF NOT EXISTS `sys_attach_dtl` (
   PRIMARY KEY (`recid`),
   KEY `sys_attach_dtl_2_sys_attach_FK` (`attachid`),
   CONSTRAINT `sys_attach_dtl_2_sys_attach_FK` FOREIGN KEY (`attachid`) REFERENCES `sys_attach` (`attachid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.sys_attach_dtl: ~35 rows (approximately)
+-- Dumping data for table db_jdih.sys_attach_dtl: ~39 rows (approximately)
 /*!40000 ALTER TABLE `sys_attach_dtl` DISABLE KEYS */;
 INSERT INTO `sys_attach_dtl` (`recid`, `attachid`, `title`, `description`, `filename`, `filetype`, `filesize`, `tumbnail`, `remarks`) VALUES
 	(8, 4, 'UUD1945dlmsatunaskah.pdf', 'Berkas Upload', 'UUD1945dlmsatunaskah.pdf', 'application/pdf', 123.62, NULL, NULL),
@@ -537,7 +543,6 @@ INSERT INTO `sys_attach_dtl` (`recid`, `attachid`, `title`, `description`, `file
 	(15, 9, 'UU-Nomor-10-Tahun-2015.pdf', 'Berkas Upload', 'UU-Nomor-10-Tahun-2015.pdf', 'application/pdf', 147.3, NULL, NULL),
 	(17, 11, 'Denah.jpg', 'Konten Statis', 'Denah.jpg', '', 0, NULL, NULL),
 	(18, 12, 'Denah1.jpg', 'Konten Statis', 'Denah1.jpg', '', 0, NULL, NULL),
-	(19, 13, 'Denah2.jpg', 'Konten Statis', 'Denah2.jpg', '', 0, NULL, NULL),
 	(20, 10, '11_-_Staff_Room.jpg', 'Konten Statis', '11_-_Staff_Room.jpg', '', 0, NULL, NULL),
 	(21, 14, 'Dirgahayu-RI_tv-lift-copy.jpg', 'Konten Statis', 'Dirgahayu-RI_tv-lift-copy.jpg', '', 0, NULL, NULL),
 	(42, 35, 'Nota Dinas', NULL, 'IN_SO_184350_(rev)2.pdf', '', 0, NULL, NULL),
@@ -561,7 +566,12 @@ INSERT INTO `sys_attach_dtl` (`recid`, `attachid`, `title`, `description`, `file
 	(60, 50, 'Nota Dinas', NULL, '170402204589FN91.pdf', '', 0, NULL, NULL),
 	(61, 51, 'Position Paper File', NULL, '17051714308J9792.pdf', '', 0, NULL, NULL),
 	(62, 52, 'Draft Rancangan File', NULL, '17041711258X32T2.pdf', '', 0, NULL, NULL),
-	(63, 53, 'Draft Rancangan File', NULL, '17041711258X32T3.pdf', '', 0, NULL, NULL);
+	(63, 53, 'Draft Rancangan File', NULL, '17041711258X32T3.pdf', '', 0, NULL, NULL),
+	(64, 13, 'stuktur-kesekjenan.jpg', 'Konten Statis', 'stuktur-kesekjenan.jpg', '', 0, NULL, NULL),
+	(65, 54, 'Peraturan-KY-Nomor-3-Tahun-2016.pdf', 'Berkas Upload', 'Peraturan-KY-Nomor-3-Tahun-2016.pdf', 'application/pdf', 3339.75, NULL, NULL),
+	(66, 55, 'PP-NO-94-TAHUN-2012.pdf', 'Berkas Upload', 'PP-NO-94-TAHUN-2012.pdf', 'application/pdf', 877.85, NULL, NULL),
+	(67, 56, '04-Peraturan-Bersama-MA-KY-tentang-Majelsi-Kehormatan-Hakim.pdf', 'Berkas Upload', '04-Peraturan-Bersama-MA-KY-tentang-Majelsi-Kehormatan-Hakim.pdf', 'application/pdf', 4771.02, NULL, NULL),
+	(68, 57, 'Persekjen-Nomor-6-Tahun-2014.pdf', 'Berkas Upload', 'Persekjen-Nomor-6-Tahun-2014.pdf', 'application/pdf', 844.47, NULL, NULL);
 /*!40000 ALTER TABLE `sys_attach_dtl` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.sys_globalvar
@@ -579,18 +589,21 @@ CREATE TABLE IF NOT EXISTS `sys_globalvar` (
   `val_dateto` date DEFAULT NULL,
   `developername` varchar(255) DEFAULT NULL,
   `guide` longtext,
-  `dateinput` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateinput` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userinput` varchar(50) NOT NULL,
   `dateupdate` datetime DEFAULT NULL,
   `userupdate` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`varid`),
   UNIQUE KEY `varname` (`varname`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.sys_globalvar: ~0 rows (approximately)
+-- Dumping data for table db_jdih.sys_globalvar: ~4 rows (approximately)
 /*!40000 ALTER TABLE `sys_globalvar` DISABLE KEYS */;
 INSERT INTO `sys_globalvar` (`varid`, `varname`, `val_int`, `val_float`, `val_varchar`, `val_date`, `val_datetime`, `val_text`, `val_datefrom`, `val_dateto`, `developername`, `guide`, `dateinput`, `userinput`, `dateupdate`, `userupdate`) VALUES
-	(1, 'pesan_sukses_permohonan', NULL, NULL, NULL, NULL, NULL, '<p>\r\n	<b>Informasi</b>\r\n</p>\r\n<p>\r\n	Terima Kasih telah mengajukan permohonan.\r\n	Permohonan anda akan kami tindak lanjuti.\r\n	Terima Kasih\r\n</p>', NULL, NULL, NULL, NULL, '2017-11-16 15:18:16', '1', NULL, NULL);
+	(1, 'pesan_sukses_permohonan', NULL, NULL, NULL, NULL, NULL, '<p>\r\n	<b>Informasi</b>\r\n</p>\r\n<p>\r\n	Terima Kasih telah mengajukan permohonan.\r\n	Permohonan anda akan kami tindak lanjuti.\r\n	Terima Kasih\r\n</p>', NULL, NULL, NULL, NULL, '2017-11-16 15:18:16', '1', NULL, NULL),
+	(2, 'jdih_fb', NULL, NULL, 'https://www.facebook/jdih-ky', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-12-01 06:42:57', '1', NULL, NULL),
+	(3, 'jdih_twitter', NULL, NULL, 'https://twitter.com/jdih-ky', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-12-01 06:48:32', '1', NULL, NULL),
+	(4, 'ky_web', NULL, NULL, 'http://www.komisiyudisial.go.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-12-01 06:50:48', '1', NULL, NULL);
 /*!40000 ALTER TABLE `sys_globalvar` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.sys_log_type
@@ -615,7 +628,7 @@ CREATE TABLE IF NOT EXISTS `sys_privilege` (
   `privilegeid` bigint(20) NOT NULL AUTO_INCREMENT,
   `roleid` bigint(20) NOT NULL,
   `sitemapid` bigint(20) NOT NULL,
-  `dateinput` datetime DEFAULT CURRENT_TIMESTAMP,
+  `dateinput` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userinput` varchar(50) NOT NULL,
   `dateupdate` datetime DEFAULT NULL,
   `userupdate` varchar(50) DEFAULT NULL,
@@ -624,9 +637,9 @@ CREATE TABLE IF NOT EXISTS `sys_privilege` (
   KEY `sys_privilege_2_sys_role_fk` (`roleid`),
   CONSTRAINT `sys_privilege_2_sys_role_fk` FOREIGN KEY (`roleid`) REFERENCES `sys_role` (`roleid`),
   CONSTRAINT `sys_privilege_2_sys_sitemap_fk` FOREIGN KEY (`sitemapid`) REFERENCES `sys_sitemap` (`sitemapid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
--- Dumping data for table db_jdih.sys_privilege: ~17 rows (approximately)
+-- Dumping data for table db_jdih.sys_privilege: ~18 rows (approximately)
 /*!40000 ALTER TABLE `sys_privilege` DISABLE KEYS */;
 INSERT INTO `sys_privilege` (`privilegeid`, `roleid`, `sitemapid`, `dateinput`, `userinput`, `dateupdate`, `userupdate`) VALUES
 	(1, 1, 1, '2017-10-29 21:27:37', '1', '2017-10-29 21:27:44', NULL),
@@ -645,7 +658,8 @@ INSERT INTO `sys_privilege` (`privilegeid`, `roleid`, `sitemapid`, `dateinput`, 
 	(14, 2, 1, '2017-11-19 20:17:59', '1', NULL, NULL),
 	(15, 2, 5, '2017-11-19 20:18:56', '1', NULL, NULL),
 	(16, 2, 128, '2017-11-19 20:19:18', '1', NULL, NULL),
-	(17, 2, 7, '2017-11-19 20:19:35', '1', NULL, NULL);
+	(17, 2, 7, '2017-11-19 20:19:35', '1', NULL, NULL),
+	(18, 1, 134, '2017-11-30 20:54:58', '1', NULL, NULL);
 /*!40000 ALTER TABLE `sys_privilege` ENABLE KEYS */;
 
 -- Dumping structure for table db_jdih.sys_role
@@ -680,18 +694,18 @@ CREATE TABLE IF NOT EXISTS `sys_sitemap` (
   `icon` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`sitemapid`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table db_jdih.sys_sitemap: ~31 rows (approximately)
 /*!40000 ALTER TABLE `sys_sitemap` DISABLE KEYS */;
 INSERT INTO `sys_sitemap` (`sitemapid`, `sitemapid_parent`, `name`, `displayname`, `titlebar`, `url`, `sortno`, `is_active`, `icon`) VALUES
 	(1, 0, 'Home', 'Home', 'Home', 'dashboard', 1, 1, '<i class="fa fa-lg fa-home"></i>'),
 	(2, 0, 'Produk Hukum', 'Produk Hukum', 'Produk Hukum', NULL, 2, 1, '<i class="fa fa-institution"></i> '),
-	(3, 2, 'Jenis Produk Hukum', 'Jenis', 'Jenis', 'Produk_hukum_kategori', 1, 1, NULL),
-	(4, 2, 'Produk Hukum Data', 'Produk Hukum', 'Produk Hukum', 'Produk_hukum', 2, 1, NULL),
+	(3, 2, 'Jenis Produk Hukum', 'Jenis', 'Jenis', 'Produk_hukum_kategori', 1, 1, '<i class="fa fa-book"></i>'),
+	(4, 2, 'Produk Hukum Data', 'Produk Hukum', 'Produk Hukum', 'Produk_hukum', 2, 1, '<i class="fa fa-tasks"></i>'),
 	(5, 0, 'Permohonan', 'Permohonan', 'Permohonan', NULL, 3, 1, '<i class="fa fa-file-text-o"></i>'),
-	(6, 5, 'Update Permohonan', 'Update Permohonan', 'Update Permohonan', 'update_permohonan', 1, 1, NULL),
-	(7, 5, 'Status Permohonan', 'Status Permohonan', 'Status Permohonan', 'permohonan', 2, 1, NULL),
+	(6, 5, 'Update Permohonan', 'Update Permohonan', 'Update Permohonan', 'update_permohonan', 1, 1, '<i class="fa fa-refresh"></i>'),
+	(7, 5, 'Status Permohonan', 'Status Permohonan', 'Status Permohonan', 'permohonan', 2, 1, '<i class="fa fa-info"></i>'),
 	(8, NULL, 'Admin', 'Admin', 'Admin', NULL, 0, 1, NULL),
 	(11, 100, 'F Home', 'Home', 'Home', 'frontend', 1, 1, NULL),
 	(13, 120, 'FPH UUD45', 'UUD 1945', 'UUD 1945', 'frontend/produk_hukum_per_kategori/3', 1, 1, NULL),
@@ -711,12 +725,13 @@ INSERT INTO `sys_sitemap` (`sitemapid`, `sitemapid_parent`, `name`, `displayname
 	(125, 20, 'FP Struktur Organisasi', 'Struktur Organisasi', 'Struktur Organisasi', 'frontend/konten_statis/struktur_organisasi_jdih', 999, 1, NULL),
 	(126, NULL, 'FP Visi dan Misi', 'Visi dan Misi', 'Visi dan Misi', 'frontend/konten_statis/visi_misi_jdih', 999, 1, NULL),
 	(127, 100, 'F Proleg KY', 'Proleg KY', 'Proleg KY', 'frontend/konten_statis/proleg_ky', 3, 1, NULL),
-	(128, 5, 'Form Pengajuan', 'Form Pengajuan', 'Form Pengajuan', 'permohonan/form_pengajuan', 4, 1, NULL),
+	(128, 5, 'Form Pengajuan', 'Form Pengajuan', 'Form Pengajuan', 'permohonan/form_pengajuan', 4, 1, '<i class="fa fa-mail-forward"></i>'),
 	(129, 0, 'Administrasi', 'Administrasi', 'Administrasi', NULL, 10, 1, '<i class="fa fa-cog"></i>'),
-	(130, 129, 'Master User', 'Master User', 'Master User', 'sys_user', 1, 1, NULL),
-	(131, 129, 'Global Variabel', 'Global Variabel', 'Global Variabel', 'sys_globalvar', 2, 1, NULL),
-	(132, 129, 'Permohonan Status', 'Permohonan Status', NULL, 'permohonan_status', 50, 1, NULL),
-	(133, 100, 'F Sunprokum', 'Sunprokum', 'Sunprokum', 'login', 5, 1, NULL);
+	(130, 129, 'Master User', 'Master User', 'Master User', 'sys_user', 1, 1, '<i class="fa fa-users"></i>'),
+	(131, 129, 'Global Variabel', 'Global Variabel', 'Global Variabel', 'sys_globalvar', 2, 1, '<i class="fa fa-globe"></i>'),
+	(132, 129, 'Permohonan Status', 'Permohonan Status', NULL, 'permohonan_status', 50, 1, '<i class="fa fa-info"></i>'),
+	(133, 100, 'F Sunprokum', 'Sunprokum', 'Sunprokum', 'login', 5, 1, NULL),
+	(134, 129, 'Admin Slide Show', 'Slide Show', 'Slide Show', 'slideshow', 60, 1, '<i class="fa fa-picture-o"></i>');
 /*!40000 ALTER TABLE `sys_sitemap` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
@@ -724,7 +739,7 @@ INSERT INTO `sys_sitemap` (`sitemapid`, `sitemapid_parent`, `name`, `displayname
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 
 
--- view-view
+-- view
 create or replace view sys_privilege_view as 
 select		x.sitemapid, x.roleid, x.dateinput, x.dateupdate, x.userinput, x.userupdate,
 			y.sitemapid_parent, y.name, y.url, y.sortno, y.is_active, y.icon, y.displayname,
@@ -733,7 +748,12 @@ from		sys_privilege x
 left join	sys_sitemap y on x.sitemapid = y.sitemapid
 left join	sys_role z  on z.roleid = x.roleid
 ;
-
+create or replace view produk_hukum_komentar_count_view as
+select		x.id_produk_hukum, count(x.id_produk_hukum) as total
+from			produk_hukum_komentar x
+where			x.publish = 'Y'
+group by		x.id_produk_hukum
+;
 create or replace view sys_attach_dtl_view as
 select		x.recid, x.attachid, x.title,
 				x.description, x.filename, x.filetype,
@@ -741,31 +761,14 @@ select		x.recid, x.attachid, x.title,
 				round((x.filesize),0) as filesize_kb
 from			sys_attach_dtl x
 ;
-
-create or replace view produk_hukum_komentar_count_view as
-select		x.id_produk_hukum, count(x.id_produk_hukum) as total
-from			produk_hukum_komentar x
-where			x.publish = 'Y'
-group by		x.id_produk_hukum
+create or replace view konten_statis_view as
+select		x.recid, x.nama, x.judul, x.isi,
+				x.id_gambar, x.id_dokumen,  
+				x.dateinput, x.dateupdate, x.userinput, x.userupdate,
+				y.filename
+from			konten_statis x
+left join	sys_attach_dtl y on y.attachid = x.id_gambar
 ;
-
-create or replace  view produk_hukum_view as
-select		x.tanggal,
-				year(x.tanggal) as tahun,
-				x.id_produk_hukum, x.id_kategori,  x.produk_hukum, x.judul,
-				x.subjudul, x.abstrak, x.isi, x.catatan, x.id_dokumen,  x.dateinput, 
-				x.userinput, x.dateupdate, x.userupdate,
-				k.kategori,
-				ui.fullname as userinput_name,
-				uu.fullname as userupdate_name,
-				ifnull(kk.total,0) as total_komentar
-from			produk_hukum x
-left join	produk_hukum_kategori k on k.id_kategori = x.id_kategori
-left join	auth_users ui on ui.user_id = x.userinput
-left join	auth_users uu on uu.user_id = x.userinput
-left join	produk_hukum_komentar_count_view kk on kk.id_produk_hukum = x.id_produk_hukum
-;
-
 create or replace view permohonan_view as
 select		x.id_permohonan, x.user_id, x.id_kategori, x.id_permohonan_status,
 				x.no_permohonan, x.tanggal, x.pengusul, x.judul, x.no_nota_dinas, x.tanggal_nota_dinas,
@@ -790,7 +793,6 @@ left join	sys_attach_dtl dpp on dpp.attachid = x.id_dok_position_paper
 left join	sys_attach_dtl ddr on ddr.attachid = x.id_dok_draft_rancangan
 left join	sys_attach_dtl dtb on dtb.attachid = x.id_dok_tahap_pembahasan
 ;
-
 create or replace view permohonan_status_h_view as
 select		x.recid, x.id_permohonan, x.id_permohonan_status,
 				x.notes, x.dateinput, x.userinput,
@@ -805,11 +807,19 @@ from			permohonan_status_h x
 left join	permohonan_status y on y.id_permohonan_status = x.id_permohonan_status
 left join	permohonan z on z.id_permohonan = x.id_permohonan
 ;
-create or replace view konten_statis_view as
-select		x.recid, x.nama, x.judul, x.isi,
-				x.id_gambar, x.id_dokumen,  
-				x.dateinput, x.dateupdate, x.userinput, x.userupdate,
-				y.filename
-from			konten_statis x
-left join	sys_attach_dtl y on y.attachid = x.id_gambar
+create or replace  view produk_hukum_view as
+select		x.tanggal,
+				year(x.tanggal) as tahun,
+				x.id_produk_hukum, x.id_kategori,  x.produk_hukum, x.judul,
+				x.subjudul, x.abstrak, x.isi, x.catatan, x.id_dokumen,  x.dateinput, 
+				x.userinput, x.dateupdate, x.userupdate,
+				k.kategori,
+				ui.fullname as userinput_name,
+				uu.fullname as userupdate_name,
+				ifnull(kk.total,0) as total_komentar
+from			produk_hukum x
+left join	produk_hukum_kategori k on k.id_kategori = x.id_kategori
+left join	auth_users ui on ui.user_id = x.userinput
+left join	auth_users uu on uu.user_id = x.userinput
+left join	produk_hukum_komentar_count_view kk on kk.id_produk_hukum = x.id_produk_hukum
 ;
