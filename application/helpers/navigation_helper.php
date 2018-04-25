@@ -24,6 +24,7 @@
 					SELECT     	y.* 
 					FROM        sys_sitemap y
 					where       y.sitemapid_parent = '".$sitemapid_parent."'
+                                                    and is_active = 1
 					order by    sortno
 				"
                 ; 

@@ -7,7 +7,7 @@
         <div class="wow fadeIn pb-70">
         
             <div class="post-prev-title">
-              <h3><a href="<?= base_url() ?>frontend/detail/<?= $row->id_kategori ?>/<?= $row->id_produk_hukum ?>"><?= $row->produk_hukum ?></a></h3>
+              <h3><a href="<?= base_url() ?>frontend/detail/<?= $row->id_kategori ?>/<?= $row->id_produk_hukum ?>"><?= $row->judul ?></a></h3>
             </div>
           
             <div class="post-prev-info">

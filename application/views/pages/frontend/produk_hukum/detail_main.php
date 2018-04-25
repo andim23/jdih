@@ -25,7 +25,7 @@
                       <a href=""><img src="images/blog/recent/1.jpg" alt="" class="widget-posts-img"></a>
                       <div class="widget-posts-descr">
                         <a href="<?= base_url() ?>frontend/detail/<?= $this->uri->segment(3) ?>/<?= $this->uri->segment(4) ?>" title="">
-						<?= $rt->produk_hukum ?>
+						<?= $rt->judul ?>
                         </a>
                         <div><?= TglIndoSaja($rt->tanggal) ?><span class="slash-divider">/</span> <?= $rt->userinput_name ?></div> 
                       </div>

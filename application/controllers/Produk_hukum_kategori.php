@@ -64,6 +64,16 @@ class Produk_hukum_kategori extends MY_Controller {
                 'rules' => 'required|min_length[2]|max_length[255]'
             ),
             array(
+                'field' => 'is_jdih',
+                'label' => 'Untuk JDIH',
+                'rules' => 'required|min_length[1]|max_length[11]'
+            ),
+            array(
+                'field' => 'is_sunprokum',
+                'label' => 'Untuk Sunprokum',
+                'rules' => 'required|min_length[1]|max_length[11]'
+            ),
+            array(
                 'field' => 'deskripsi',
                 'label' => 'Deskripsi',
                 'rules' => 'max_length[4000]'
@@ -79,11 +89,15 @@ class Produk_hukum_kategori extends MY_Controller {
             $deskripsi = $this->input->post('deskripsi');
             $kategori = $this->input->post('kategori');
             $userinput = $this->auth_user_id;
-
+			$is_jdih = $this->input->post('is_jdih');
+			$is_sunprokum = $this->input->post('is_sunprokum');
+			
             // set POST data in Array
             $data = array(
                 'deskripsi' => $deskripsi,
-                'kategori' => $kategori
+                'kategori' => $kategori,
+				'is_jdih' => $is_jdih,
+				'is_sunprokum' => $is_sunprokum
             );
 
             if (!empty($id)) {

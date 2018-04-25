@@ -9,20 +9,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="kategori" class="col-lg-3 control-label">Untuk JDIH <span class="required" aria-required="true">*</span></label>
+                <label for="kategori" class="col-lg-3 control-label">Untuk Permohonan <span class="required" aria-required="true">*</span></label>
                 <div class="col-lg-9">
-                    <select name="is_jdih" id="is_jdih" class="form-control required">
-                    	<option value="">Pilih</option>
-                        <option value="Y">Ya</option>
-                        <option value="N">Tidak</option>
-                    </select>
-                </div>
-            </div>
-			<div class="form-group">
-                <label for="kategori" class="col-lg-3 control-label">Untuk Sunprokum <span class="required" aria-required="true">*</span></label>
-                <div class="col-lg-9">
-                    <select name="is_sunprokum" id="is_sunprokum" class="form-control required">
-                        <option value="">Pilih</option>
+                    <select name="is_permohonan" id="is_permohonan" class="form-control">
                     	<option value="Y">Ya</option>
                         <option value="N">Tidak</option>
                     </select>

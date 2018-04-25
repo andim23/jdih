@@ -4,8 +4,7 @@
 <!-- POST ITEM -->
 <div class="blog-post wow fadeIn pb-50">        
     <div class="post-prev-title">
-      <h3><a href="#"><?= $row->produk_hukum ?></a></h3>
-      <h4><a href="#"><?= $row->judul ?></a></h4>
+      <h3><a href="#"><?= $row->judul ?></a></h3>
       <h5><a href="#"><?= $row->subjudul ?></a></h5>
     </div>
   
@@ -32,7 +31,9 @@
       	foreach($attach as $rt){
 	  ?>
       	<li>
-      	<a href="<?= base_url() ?>upload/produk_hukum/<?= $rt->filename ?>" target="_blank" style="font-weight:bold;"><span class="icon icon-basic-download"></span>&nbsp; <?= $rt->filename ?> (<?= $rt->filesize_kb ?> KB)</a>
+            <a href="<?= base_url() ?>upload/produk_hukum/<?= $rt->filename ?>" target="_blank" style="font-weight:bold;" title="<?= $rt->filename ?>"><span class="icon icon-basic-download"></span>&nbsp; 
+            <?= PotongKata($rt->filename, 3, "_") ?> (<?= $rt->filesize_kb ?> KB)
+        </a>
       	</li>
 	  <?php } ?>
       </ul>

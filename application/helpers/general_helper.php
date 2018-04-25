@@ -1,22 +1,25 @@
 <?php
 	
-	function PotongKata($Kata, $Jml)
+	function PotongKata($Kata, $Jml, $separator=" ")
 	{
 		$data = "";		
 		$Kata = strip_tags($Kata);
-		$temp = explode(" ", $Kata);
+		$temp = explode($separator, $Kata);
 
-		if(count($temp) < $Jml)
+		if(count($temp) < $Jml){
 			$Jml = count($temp);
-		else
+                        $t = "";
+                }
+		else{
 			$Jml = $Jml;
-		
+                        $t = " ...";
+                }
 		for($i=0; $i<$Jml; $i++)
 		{
 			$data .= " " . $temp[$i];
 		}
 
-		return $data;
+		return $data . $t;
 	}
 	
 	function TglIndo($tgl)

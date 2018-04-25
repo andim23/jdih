@@ -42,7 +42,7 @@ class Produk_hukum extends MY_Controller {
             $dy[0]->displayname => base_url() . $dy[0]->url . '?x=' . $x . '&y=' . $y
         );
         
-        $kategori = $this->produk_hukum_kategori_m->get_data(array('is_sunprokum' => 'Y'), 'kategori');
+        $kategori = $this->produk_hukum_kategori_m->get_data(array('is_permohonan' => 'N'), 'kategori');
 
         $data['kategori'] = $kategori;
         $data['breadcrumb'] = $breadcrumb;
@@ -66,7 +66,12 @@ class Produk_hukum extends MY_Controller {
         }
 
         // set validation rules
-        $config = array(            
+        $config = array(
+            array(
+                'field' => 'produk_hukum',
+                'label' => 'Produk Hukum',
+                'rules' => 'required|min_length[2]|max_length[255]'
+            ),
             array(
                 'field' => 'judul',
                 'label' => 'Judul',
@@ -116,6 +121,7 @@ class Produk_hukum extends MY_Controller {
         if ($this->form_validation->run() !== false) {
             // Post data
             $id = $this->input->post('id_produk_hukum');
+            $produk_hukum = $this->input->post('produk_hukum');
             $tanggal = $this->input->post('tanggal');
             $tanggal = date_sql($tanggal);
             $judul = $this->input->post('judul');
@@ -137,6 +143,7 @@ class Produk_hukum extends MY_Controller {
             $data = array(
                 'id_kategori' => $id_kategori,
                 'id_dokumen' => $id_dokumen,
+                'produk_hukum' => $produk_hukum,
                 'tanggal' => $tanggal,
                 'judul' => $judul,
                 'subjudul' => $subjudul,
@@ -277,7 +284,7 @@ class Produk_hukum extends MY_Controller {
             'Form' => ''
         );
         
-        $kategori = $this->produk_hukum_kategori_m->get_data(array('is_sunprokum' => 'Y'), 'kategori');
+        $kategori = $this->produk_hukum_kategori_m->get_data(array('is_permohonan' => 'N'), 'kategori');
         $result = $this->Produk_hukum_m->get_data_by_id($id);
         $id_dokumen = isset($result[0]->id_dokumen)?$result[0]->id_dokumen:0;
         $where = array('attachid' => $id_dokumen);

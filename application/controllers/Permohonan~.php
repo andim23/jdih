@@ -69,7 +69,7 @@ class Permohonan extends MY_Controller {
         $du = $this->Sys_user_m->get_data_by_id($this->auth_user_id);
         
         $data['du'] = $du;
-        $dkategori = $this->produk_hukum_kategori_m->get_data(array('is_sunprokum'=>'Y'), 'no_urut');
+        $dkategori = $this->produk_hukum_kategori_m->get_data(array('is_permohonan' => 'Y'), 'no_urut');
         $data['dkategori'] = $dkategori;
         $data['breadcrumb'] = $breadcrumb;
         $data['page'] = $this->main_path . 'form_pengajuan/main.php';

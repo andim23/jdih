@@ -82,11 +82,11 @@ class Frontend extends MY_Controller {
         $config["next_link"] = 'Berikutnya';
         $config["prev_link"] = 'Sebelumnya';
         
-        $start = $this->uri->segment(4);
+        $start = $this->input->get('hal');
         
         $this->pagination->initialize($config);
         $result = $this->Produk_hukum_m->get_data_per_page($where, 'tanggal desc', $config['per_page'], $start);
-        $dkategori = $this->produk_hukum_kategori_m->get_data('id_group is null', 'no_urut');
+        $dkategori = $this->produk_hukum_kategori_m->get_data(array('is_jdih' => 'Y'), 'no_urut');
         $tahun = $this->Produk_hukum_m->get_tahun();
         
         $data['tahun'] = $tahun;
@@ -115,7 +115,7 @@ class Frontend extends MY_Controller {
         $attach = $this->Sys_attach_dtl_m->get_data(array('attachid' => $id_dokumen));
         $komentar = $this->Produk_hukum_komentar_m->get_data(array('id_produk_hukum' => $id_produk_hukum, 'publish' => 'Y'));
         
-        $dkategori = $this->produk_hukum_kategori_m->get_data('id_group is null', 'no_urut');
+        $dkategori = $this->produk_hukum_kategori_m->get_data(array('is_jdih' => 'Y'), 'no_urut');
         $tahun = $this->Produk_hukum_m->get_tahun();
         
         $data['tahun'] = $tahun;
@@ -194,7 +194,7 @@ class Frontend extends MY_Controller {
         $result = $this->Produk_hukum_m->get_data_per_page($where, null, $config['per_page'], $start, $like);
         
         
-        $dkategori = $this->produk_hukum_kategori_m->get_data(null, 'no_urut');
+        $dkategori = $this->produk_hukum_kategori_m->get_data(array('is_jdih' => 'Y'), 'no_urut');
         $tahun = $this->Produk_hukum_m->get_tahun();
         
         $data['tahun'] = $tahun;
@@ -286,7 +286,7 @@ class Frontend extends MY_Controller {
     
     public function registrasi(){
         $this->load->model('produk_hukum_kategori_m');
-        $dkategori = $this->produk_hukum_kategori_m->get_data(array('is_permohonan' => 'Y'), 'no_urut');
+        $dkategori = $this->produk_hukum_kategori_m->get_data(array('is_jdih' => 'Y'), 'no_urut');
         $data['dkategori'] = $dkategori;
         $data['page'] = $this->main_path . "registrasi/main";
         $data['title'] = "Registrasi"; // Capitalize the first letter

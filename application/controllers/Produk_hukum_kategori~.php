@@ -9,39 +9,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 
 /**
- * Description of Konten_statis
+ * Description of Produk_hukum_kategori
  *
  * @author Selamet Subu - Dell 5459
  */
-class Konten_statis extends MY_Controller {
-
-    var $tmp_path = 'templates/index_horizontal_menu/index';
-    var $main_path = 'pages/konten_statis/';
-
+class Produk_hukum_kategori extends MY_Controller {
+    
+    var $tmp_path = 'templates/layout_horizontal_sidebar_menu/index';
+    var $main_path = 'pages/produk_hukum/jenis/';
+    
     public function __construct() {
         parent::__construct();
-        $this->load->model('Konten_statis_m');
+        $this->load->model('Produk_hukum_kategori_m');
         $this->load->library('form_validation');
-
-        $this->is_logged_in();
-        if (empty($this->auth_role))
+        
+        $this->is_logged_in(); 
+        if(empty($this->auth_role))
             redirect('login');
     }
 
     public function index() {
+        
         $x = $this->input->get('x');
         $y = $this->input->get('y');
         $dx = $this->Sys_sitemap->get_data_by_id($x);
-
+        $dy = $this->Sys_sitemap->get_data_by_id($y);
+        
         // set breadcrumb, tidak usah pake Home karena itu sudah default
         $breadcrumb = array(
-            $dx[0]->displayname => base_url() . 'page/get_left_menu?x=' . $x
+            $dx[0]->displayname => base_url() . 'page/get_left_menu?x=' . $x,
+            $dy[0]->displayname => base_url() . $dy[0]->url . '?x=' . $x . '&y=' . $y
         );
-
+        
         $data['breadcrumb'] = $breadcrumb;
         $data['page'] = $this->main_path . 'main.php';
-        $data['title'] = "Konten Statis"; // Capitalize the first letter
-        $data['htitle'] = "Konten Statis";
+        $data['title'] = "Jenis Produk Hukum"; // Capitalize the first letter
+        $data['htitle'] = "Jenis Produk Hukum";
         $this->load->view($this->tmp_path, $data);
     }
 
@@ -53,27 +56,17 @@ class Konten_statis extends MY_Controller {
         )
             show_404();
 
-        // check user  login
-        if (!$this->verify_role('admin')) {
-            redirect("login");
-        }
-
         // set validation rules
         $config = array(
             array(
-                'field' => 'nama',
-                'label' => 'Nama',
+                'field' => 'kategori',
+                'label' => 'Jenis Produk',
                 'rules' => 'required|min_length[2]|max_length[255]'
             ),
             array(
-                'field' => 'judul',
-                'label' => 'Judul',
-                'rules' => 'required|min_length[2]|max_length[255]'
-            ),
-            array(
-                'field' => 'isi',
-                'label' => 'Isi',
-                'rules' => 'required'
+                'field' => 'deskripsi',
+                'label' => 'Deskripsi',
+                'rules' => 'max_length[4000]'
             )
         );
         $this->form_validation->set_rules($config);
@@ -82,30 +75,24 @@ class Konten_statis extends MY_Controller {
 
         if ($this->form_validation->run() !== false) {
             // Post data
-            $id = $this->input->post('recid');
-            $nama = $this->input->post('nama');
-            $judul = $this->input->post('judul');
-            $isi = $this->input->post('isi');
-            $gambar = $this->input->post('gambar');
-            $id_gambar = $this->input->post('id_gambar');
-            
+            $id = $this->input->post('id_kategori');
+            $deskripsi = $this->input->post('deskripsi');
+            $kategori = $this->input->post('kategori');
             $userinput = $this->auth_user_id;
 
             // set POST data in Array
             $data = array(
-                'nama' => $nama,
-                'judul' => $judul,
-                'isi' => $isi,
-                'id_gambar' => $id_gambar
+                'deskripsi' => $deskripsi,
+                'kategori' => $kategori
             );
 
             if (!empty($id)) {
                 $data['userupdate'] = $userinput;
                 $data['dateupdate'] = date('Y-m-d');
-                $result = $this->Konten_statis_m->update_by_id($data, $id, $gambar);
+                $result = $this->Produk_hukum_kategori_m->update_by_id($data, $id);
             } else {
                 $data['userinput'] = $userinput;
-                $result = $this->Konten_statis_m->insert($data, $gambar);
+                $result = $this->Produk_hukum_kategori_m->insert($data);
             }
 
             if ($result) {
@@ -135,31 +122,7 @@ class Konten_statis extends MY_Controller {
             redirect("login");
         }
         $id = $this->input->get('id');
-        $result = $this->Konten_statis_m->delete_by_id($id);
-        if ($result) {
-            $r = array('status' => '1', 'message' => 'Data terhapus');
-        } else {
-            $r = array('status' => '0', 'message' => 'Data gagal terhapus');
-        }
-
-        echo json_encode($r);
-    }
-    
-    public function hapus_gambar_json(){
-        $this->load->model('Sys_attach_dtl_m');
-        $id_gambar = $this->input->get('id_gambar');
-        
-        $data = $this->Sys_attach_dtl_m->get_data(array('attachid' => $id_gambar));
-        $filename = $data[0]->filename;
-        $recid = $data[0]->recid;
-        
-        $path = base_url() . 'upload/konten_statis/' . $filename;
-        if(is_file($path) ){
-            unlink($path);
-        }
-        
-        $result = $this->Sys_attach_dtl_m->delete_by_id($recid);
-        
+        $result = $this->Produk_hukum_kategori_m->delete_by_id($id);
         if ($result) {
             $r = array('status' => '1', 'message' => 'Data terhapus');
         } else {
@@ -181,15 +144,15 @@ class Konten_statis extends MY_Controller {
             redirect("login");
         }
 
-        $this->load->model('Konten_statis_m');
+        $this->load->model('Produk_hukum_kategori_m');
 
         $column_order = array(
-            'recid', 'nama', 'judul', 'dateinput'
+            'id_kategori', 'kategori', 'deskripsi', 'id_kategori'
         );
         $column_search = $column_order;
         $order = array('dateinput' => 'desc'); // default order 
 
-        $list = $this->Konten_statis_m->get_datatables($column_order, $order, $column_search);
+        $list = $this->Produk_hukum_kategori_m->get_datatables($column_order, $order, $column_search);
         $data = array();
         $no = $_POST['start'];
         foreach ($list as $r) {
@@ -204,8 +167,8 @@ class Konten_statis extends MY_Controller {
 
         $output = array(
             "draw" => $_POST['draw'],
-            "recordsTotal" => $this->Konten_statis_m->count_all(),
-            "recordsFiltered" => $this->Konten_statis_m->count_filtered($column_order, $order, $column_search),
+            "recordsTotal" => $this->Produk_hukum_kategori_m->count_all(),
+            "recordsFiltered" => $this->Produk_hukum_kategori_m->count_filtered($column_order, $order, $column_search),
             "data" => $data,
         );
         echo json_encode($output);
@@ -221,30 +184,8 @@ class Konten_statis extends MY_Controller {
 
 
         $id = $this->input->get("id");
-        $data = $this->Konten_statis_m->get_data_by_id($id);
+        $data = $this->Produk_hukum_kategori_m->get_data_by_id($id);
         echo json_encode($data);
-    }
-    
-    public function get_content($name = null){
-        $x = $this->input->get('x');
-        $y = $this->input->get('y');
-        $dx = $this->Sys_sitemap->get_data_by_id($x);
-        $dy = $this->Sys_sitemap->get_data_by_id($y);
-
-        // set breadcrumb, tidak usah pake Home karena itu sudah default
-        $breadcrumb = array(
-            $dx[0]->displayname => base_url() . 'page/get_left_menu?x=' . $x,
-            $dy[0]->displayname => base_url() . $dy[0]->url . '?x=' . $x . '&y=' . $y
-        );
-        
-        $result = $this->Konten_statis_m->get_data(array('nama'=>$name));
-        
-        $data['result'] = $result;
-        $data['breadcrumb'] = $breadcrumb;
-        $data['page'] = $this->main_path . 'result.php';
-        $data['title'] = $dy[0]->displayname; // Capitalize the first letter
-        $data['htitle'] = $dy[0]->displayname;
-        $this->load->view('templates/layout_horizontal_sidebar_menu/index', $data);
     }
 
 }
